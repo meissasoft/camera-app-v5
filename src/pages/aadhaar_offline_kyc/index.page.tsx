@@ -3,17 +3,14 @@ import { useRouter } from 'next/router';
 import Button from '@/components/core/Button';
 import Header from '@/components/core/Header';
 
-import { AadhaarXmlSvg } from '@/assets/svg/aadhaar_xml';
 import StepLayout from '@/components/StepsLayout';
-import { useAppSelector } from '@/hooks/useReduxTypedHooks';
-import { DivMain, DivSvg, FooterButtonStyle, FormLabel } from './index.styles';
+import { DivMain, FooterButtonStyle, FormLabel } from './index.styles';
 /**
  *
  * @returns Language page
  */
-const AadhaarOfflineKyc = () => {
-  // const { verificationStep } = useAppSelector(getAppDataSelector);
 
+const AadhaarOfflineKyc = () => {
   const router = useRouter();
 
   const onClickHeaderIcon = () => {
