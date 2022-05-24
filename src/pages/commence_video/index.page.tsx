@@ -10,7 +10,8 @@ import Header from '@/components/core/Header';
 import Button from '@/components/core/Button';
 
 import { CardIcon } from '@/assets/svg/card-icon';
-import MyCommenceCenteredModal from '@/components/CommenceVideomodel/index.page';
+
+import MyCommenceCenteredModal from '@/components/core/CommenceVideomodel/index.page';
 import {
   DivButton,
   DivDifference,
@@ -31,7 +32,7 @@ import {
  */
 
 const onClickHeaderIcon = () => {
-  router.push('/verification');
+  router.push('/language');
 };
 
 const Commenceyourvideo = () => {
@@ -57,7 +58,7 @@ const Commenceyourvideo = () => {
     setModalShow(true);
   };
   const handleStart = () => {
-    router.push('/language');
+    router.push('/aadhaar_xml');
   };
   const onClicOk = () => {
     router.push('/camera_pic');

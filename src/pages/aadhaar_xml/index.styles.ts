@@ -91,16 +91,17 @@ export const CustomRadioButton = styled.div`
   align-items: center;
   width: 30px
   height: 30px;
-  border: 2px solid red;
+  border: 2px solid #38a1f7;
   border-radius: 50%;
-  .innerBall{
-  display:inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
+  .innerBall {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    border: 5px solid #38a1f7;
   }
-  `;
+`;
 
 export const RadioButtonLabel = styled.h5`
   font-style: normal;
@@ -108,5 +109,5 @@ export const RadioButtonLabel = styled.h5`
   font-size: 18px;
   line-height: 24px;
   color: #121212;
-  opacity: 0.8;
+  opacity: 1;
 `;

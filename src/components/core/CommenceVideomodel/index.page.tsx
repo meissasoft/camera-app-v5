@@ -15,7 +15,6 @@ import {
   ParagraphTextModel,
   RowTextModel,
 } from './index.style';
-
 interface Props {
   show?: boolean;
   onHide: any;

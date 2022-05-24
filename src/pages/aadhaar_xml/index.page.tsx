@@ -47,7 +47,7 @@ const AadhaarXml = () => {
                 selected={false}
                 onChange={() => console.log('ds')}
               />
-              <span className="innerBall"></span>
+              <span className="innerBall">12</span>
             </CustomRadioButton>
             <RadioButtonLabel className="form-check-label">Yes</RadioButtonLabel>
           </RadioButtonView>
