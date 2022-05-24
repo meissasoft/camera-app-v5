@@ -1,4 +1,4 @@
-export const AadhaarXml = () => (
+export const AadhaarXmlSvg = () => (
   <svg width="124" height="80" viewBox="0 0 124 80" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
