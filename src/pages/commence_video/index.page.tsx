@@ -11,7 +11,6 @@ import Button from '@/components/core/Button';
 
 import { CardIcon } from '@/assets/svg/card-icon';
 
-import MyCommenceCenteredModal from '@/components/core/CommenceVideomodel/index.page';
 import {
   DivButton,
   DivDifference,
@@ -37,7 +36,6 @@ const onClickHeaderIcon = () => {
 
 const Commenceyourvideo = () => {
   const { t } = useTranslation('commence_your_video');
-  const [modalShow, setModalShow] = React.useState(false);
   const document = [
     {
       name: t('Aadhaar Verification'),
@@ -54,21 +52,18 @@ const Commenceyourvideo = () => {
     { name: t('Video Call (Liveness check)'), Svg: GreaterThenIcon },
   ];
 
-  const onClickCard = () => {
-    setModalShow(true);
-  };
   const handleStart = () => {
     router.push('/aadhaar_xml');
   };
-  const onClicOk = () => {
-    router.push('/camera_pic');
+  const onRowClickHandel = () => {
+    router.push('/aadhaar_xml');
   };
-  return (
-    <>
-      <DivMain>
-        <IdentificationStyled>
-          <Header isLongText onClick={onClickHeaderIcon} text={t('Commence your video KYC')} />
 
+  return (
+    <DivMain>
+      <div>
+        <Header onClick={onClickHeaderIcon} text={t('Commence your video KYC')} />
+        <IdentificationStyled>
           <DivVerificationCardStyled>
             <CardIcon />
           </DivVerificationCardStyled>
@@ -80,42 +75,22 @@ const Commenceyourvideo = () => {
         <DocumentContainer>
           <StyledLine />
           {document.map((doc, id) => (
-            <>
-              <Row onClick={onClickCard} key={id}>
-                <div className="col-1">{doc.Svg()}</div>
-                <DivDifference />
-                <div className="col-11">
-                  <IdentifyText>{doc.name}</IdentifyText>
-                </div>
-              </Row>
-            </>
+            <Row key={id} onClick={onRowClickHandel}>
+              <div className="col-1">{doc.Svg()}</div>
+              <DivDifference />
+              <div className="col-11">
+                <IdentifyText>{doc.name}</IdentifyText>
+              </div>
+            </Row>
           ))}
         </DocumentContainer>
-        <DivButton>
-          <Button onClick={handleStart} className="m-auto">
-            Start
-          </Button>
-        </DivButton>
-      </DivMain>
-      <MyCommenceCenteredModal
-        show={modalShow}
-        onOk={onClicOk}
-        onHide={() => setModalShow(false)}
-        GreaterThenIcon={GreaterThenIcon}
-        heading={t('By clicking on ‘Agree’, you hereby:')}
-        paragraph1={t(
-          'Acknowledge the request made by Syntizen technologies private limited to provide personal details.'
-        )}
-        paragraph2={t(
-          'Provide my unconditional concent to access, copy and store all information there in by sharing the inofrmation.'
-        )}
-        paragraph3={t(
-          'Also undertake I/We are authorised to do so on behalf of the requestee organisation and tkae sole and complete responsibilitity for the same.'
-        )}
-        Disagree={t('Disagree')}
-        Agree={t('Agree')}
-      />
-    </>
+      </div>
+      <DivButton>
+        <Button isBottom onClick={handleStart} className="m-auto">
+          Start
+        </Button>
+      </DivButton>
+    </DivMain>
   );
 };
 

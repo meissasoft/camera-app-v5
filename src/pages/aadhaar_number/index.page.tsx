@@ -20,8 +20,8 @@ const AadhaarNumber = () => {
     router.push('/login');
   };
 
-  const handleContinue = () => {
-    router.push('/verification');
+  const handleSendOtp = () => {
+    router.push('/optVerification');
     dispatch(setVerificationStep(1));
   };
 
@@ -62,7 +62,7 @@ const AadhaarNumber = () => {
           </div>
           <VectorIcon />
         </CapchaView>
-        <Button isBottom onClick={handleContinue} className="my-5 m-auto">
+        <Button isBottom onClick={handleSendOtp} className="my-5 m-auto">
           Send OTP
         </Button>
       </div>

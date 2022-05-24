@@ -17,14 +17,15 @@ const AadhaarOfflineKyc = () => {
     router.push('/');
   };
 
-  const handleContinue = () => {
-    router.push(`/`);
+  const handleGeneration = () => {
+    console.log('Generate Clicked');
   };
-
+  const handleProceed = () => {
+    router.push('/aadhaar_number');
+  };
   const onClickCard = () => {
     console.log('Card Clicked');
   };
-
   return (
     <DivMain>
       <div>
@@ -42,13 +43,13 @@ const AadhaarOfflineKyc = () => {
         <FormLabel>Don’t have an Aadhaar XML file?</FormLabel>
 
         <div className="button-container">
-          <Button isBottom onClick={handleContinue} className="m-auto" bgLight>
+          <Button isBottom onClick={handleGeneration} className="m-auto" backgroundLight>
             Generate Now
           </Button>
         </div>
 
         <div className="button-container">
-          <Button isBottom onClick={handleContinue} className="m-auto">
+          <Button isBottom onClick={handleProceed} className="m-auto">
             Proceed
           </Button>
         </div>
