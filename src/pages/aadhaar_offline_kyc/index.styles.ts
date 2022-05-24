@@ -10,7 +10,7 @@ export const DivMain = styled.div`
   height: 100vh;
   .button-container {
     width: 100%;
-    margin-top: 48px;
+    margin-top: 20px;
     position: relative;
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@ export const FooterButtonStyle = styled.div`
 `;
 
 export const FormLabel = styled.h5`
-  text-align: left;
+  text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -75,33 +75,11 @@ export const RadioButtonView = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  position: relative;
   .radioInput {
-    margin-right: 15px;
+    margin-right: 10px;
     background-color: #e5e5e5;
-    width: 20px;
-    height: 20px;
-    opacity: 0;
-    display: none;
   }
 `;
-export const CustomRadioButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px
-  height: 30px;
-  border: 2px solid red;
-  border-radius: 50%;
-  .innerBall{
-  display:inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-  }
-  `;
-
 export const RadioButtonLabel = styled.h5`
   font-style: normal;
   font-weight: 600;

@@ -13,6 +13,7 @@ import {
   FormLabel,
   RadioButtonLabel,
   RadioButtonView,
+  CustomRadioButton,
 } from './index.styles';
 /**
  *
@@ -26,27 +27,44 @@ const AadhaarXml = () => {
   };
 
   const handleContinue = () => {
-    router.push(`/aadhaar_xml`);
+    router.push(`/aadhaar_offline_kyc`);
   };
+
   return (
     <DivMain>
-      <Header text="Aadhaar XML" onClick={onClickHeaderIcon} />
-      <DivSvg>
-        <AadhaarXmlSvg />
-      </DivSvg>
-      <DivForm>
-        <FormLabel>Do you have an Aadhaar XML file?</FormLabel>
-        <RadioButtonView>
-          <RadioInputStyled name={'yes'} className="radioInput" />
-
-          <RadioButtonLabel className="form-check-label">Yes</RadioButtonLabel>
-        </RadioButtonView>
-        <RadioButtonView>
-          <RadioInputStyled name={'yes'} className="radioInput" />
-
-          <RadioButtonLabel className="form-check-label">No</RadioButtonLabel>
-        </RadioButtonView>
-      </DivForm>
+      <div>
+        <Header text="Aadhaar XML" onClick={onClickHeaderIcon} />
+        <DivSvg>
+          <AadhaarXmlSvg />
+        </DivSvg>
+        <DivForm>
+          <FormLabel>Do you have an Aadhaar XML file?</FormLabel>
+          <RadioButtonView>
+            <CustomRadioButton>
+              <RadioInputStyled
+                name={'yes'}
+                className="radioInput"
+                selected={false}
+                onChange={() => console.log('ds')}
+              />
+              <span className="innerBall"></span>
+            </CustomRadioButton>
+            <RadioButtonLabel className="form-check-label">Yes</RadioButtonLabel>
+          </RadioButtonView>
+          <RadioButtonView>
+            <CustomRadioButton>
+              <RadioInputStyled
+                name={'yes'}
+                className="radioInput"
+                selected={false}
+                onChange={() => console.log('ds')}
+              />
+              <span className="innerBall"></span>
+            </CustomRadioButton>
+            <RadioButtonLabel className="form-check-label">No</RadioButtonLabel>
+          </RadioButtonView>
+        </DivForm>
+      </div>
       <FooterButtonStyle>
         <div className="button-container">
           <Button isBottom onClick={handleContinue} className="m-auto">

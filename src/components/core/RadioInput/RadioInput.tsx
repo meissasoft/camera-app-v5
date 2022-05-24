@@ -1,17 +1,9 @@
-import { ContainerB } from './RadioInput.styles';
+import { RadioInputStyled } from './RadioInput.styles';
+
 import { IInputProps } from './RadioInput.types';
 
-const RadioInput = ({ ...props }: IInputProps) => {
-  return (
-    <ContainerB>
-      {/* <RadioInputStyled {...props} className={`${className}`} type="radio" /> */}
-      <label className="container" {...props}>
-        One
-        <input type="radio" checked name="radio" />
-        <span className="checkmark"></span>
-      </label>
-    </ContainerB>
-  );
+const RadioInput = ({ className, ...props }: IInputProps) => {
+  return <RadioInputStyled {...props} className={`${className}`} type="radio" />;
 };
 
 export default RadioInput;

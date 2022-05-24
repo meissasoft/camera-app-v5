@@ -8,4 +8,5 @@ export type IInputProps = {
   placeholder?: string;
   type?: string;
   InputProps?: any;
+  selected: boolean;
 };

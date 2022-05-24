@@ -10,7 +10,7 @@ export const DivStepLayout = styled.div<{ disabled: boolean }>`
     cursor: not-allowed;`
       : ``}
   box-sizing: border-box;
-  padding: 15px;
+  padding: 15px 25px;
   margin: 20px 0px;
   width: 100%;
   min-height: 98px;
