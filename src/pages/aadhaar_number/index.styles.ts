@@ -12,7 +12,7 @@ export const DivMain = styled.div`
     padding: 0px 20px;
     display: flex;
     flex-direction: column;
-    align-content  space-between;
+    align-content  flex-start;
     justify-content: flex-start;
     align-items: center;
     margin-top:10px;
@@ -40,7 +40,7 @@ export const DivMain = styled.div`
 
   .barIcon{
     cursor:pointer;
-    text-align:center;
+    text-align: center;
   } 
 
   .crossIcon{
@@ -126,5 +126,27 @@ export const DivMain = styled.div`
     text-align: center;
     color: ${COLORS.GREY_12};
     opacity: 0.6;
+  }
+`;
+
+export const CapchaView = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 12px;
+  .capcha {
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    padding: 10px;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+    margin-right: 15px;
+    span {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      color: #000000;
+    }
   }
 `;
