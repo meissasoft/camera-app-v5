@@ -79,30 +79,12 @@ export const RadioButtonView = styled.div`
   .radioInput {
     margin-right: 15px;
     background-color: #e5e5e5;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     opacity: 0;
     display: none;
   }
 `;
-export const CustomRadioButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px
-  height: 30px;
-  border: 2px solid #38a1f7;
-  border-radius: 50%;
-  .innerBall {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    border-radius: 50%;
-    border: 5px solid #38a1f7;
-  }
-`;
-
 export const RadioButtonLabel = styled.h5`
   font-style: normal;
   font-weight: 600;
@@ -110,4 +92,47 @@ export const RadioButtonLabel = styled.h5`
   line-height: 24px;
   color: #121212;
   opacity: 1;
+`;
+
+export const MainStyle = styled.div`
+  .customRadio input[type='radio'] {
+    position: absolute;
+    left: -9999px;
+  }
+  .customRadio input[type='radio'] + label {
+    position: relative;
+    padding: 3px 0 0 40px;
+    cursor: pointer;
+  }
+  .customRadio input[type='radio'] + label:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #adb3bc;
+    background-color: #e5e5e5;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .customRadio input[type='radio'] + label:after {
+    content: '';
+    background: linear-gradient(180deg, #38568f 0%, #38a1f7 100%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    opacity: 0;
+    transform: scale(2);
+    transition: transform 0.3s linear, opacity 0.3s linear;
+  }
+  .customRadio input[type='radio']:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
 `;
