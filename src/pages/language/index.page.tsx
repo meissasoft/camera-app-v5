@@ -68,7 +68,7 @@ const ChooseLangugae = () => {
     },
   ]);
 
-  const [selectedLangugage, setSelectedLanguage] = useState<string>(langugaes[0].code);
+  const [, setSelectedLanguage] = useState<string>(langugaes[0].code);
 
   const onClickHeaderIcon = () => {
     router.push('/');
@@ -85,7 +85,7 @@ const ChooseLangugae = () => {
   };
 
   const handleContinue = () => {
-    router.push(`${selectedLangugage}/login`);
+    router.push('/commence_video');
   };
   return (
     <DivMain>
