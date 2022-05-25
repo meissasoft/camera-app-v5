@@ -94,24 +94,36 @@ export const RadioButtonLabel = styled.h5`
   opacity: 1;
 `;
 
-export const MainStyle = styled.div`
+export const MainStyle = styled.div<{
+  isChecked?: boolean;
+}>`
   .customRadio input[type='radio'] {
     position: absolute;
     left: -9999px;
+    margin-top: 16px;
+    font-size: 18px;
   }
   .customRadio input[type='radio'] + label {
     position: relative;
-    padding: 3px 0 0 40px;
+    padding: 15px 0 0 50px;
     cursor: pointer;
+    color: #38568f;
+    font-weight: 600;
   }
   .customRadio input[type='radio'] + label:before {
     content: '';
-    background: #fff;
-    border: 2px solid #adb3bc;
-    background-color: #e5e5e5;
+    background: #ffffff;
+    border: ${({ isChecked }) =>
+      isChecked
+        ? ` 2px solid #38568f;;
+    `
+        : '0px'};
+    margin-top: 17px;
+    background-color: #ffffff;
     cursor: pointer;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
     border-radius: 50%;
     position: absolute;
     top: 0;
@@ -121,12 +133,14 @@ export const MainStyle = styled.div`
   .customRadio input[type='radio'] + label:after {
     content: '';
     background: linear-gradient(180deg, #38568f 0%, #38a1f7 100%);
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     position: absolute;
     top: 5px;
     left: 5px;
+    margin-left: 9px;
+    margin-top: 16px;
     opacity: 0;
     transform: scale(2);
     transition: transform 0.3s linear, opacity 0.3s linear;
@@ -134,5 +148,25 @@ export const MainStyle = styled.div`
   .customRadio input[type='radio']:checked + label:after {
     opacity: 1;
     transform: scale(1);
+  }
+  input[type='radio']:checked {
+    box-shadow: 0 0 0 3px 38568f;
+  }
+  input[type='checkbox']:checked {
+    box-shadow: 0 0 0 3px 38568f;
+  }
+  input:checked {
+    border: 6px solid black;
+  }
+
+  button:hover,
+  button:focus {
+    background-color: yellow;
+  }
+
+  button:active {
+    background-color: white;
+    color: black;
+    outline: 1px solid black;
   }
 `;
