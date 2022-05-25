@@ -79,30 +79,12 @@ export const RadioButtonView = styled.div`
   .radioInput {
     margin-right: 15px;
     background-color: #e5e5e5;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     opacity: 0;
     display: none;
   }
 `;
-export const CustomRadioButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px
-  height: 30px;
-  border: 2px solid #38a1f7;
-  border-radius: 50%;
-  .innerBall {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    border-radius: 50%;
-    border: 5px solid #38a1f7;
-  }
-`;
-
 export const RadioButtonLabel = styled.h5`
   font-style: normal;
   font-weight: 600;
@@ -110,4 +92,81 @@ export const RadioButtonLabel = styled.h5`
   line-height: 24px;
   color: #121212;
   opacity: 1;
+`;
+
+export const MainStyle = styled.div<{
+  isChecked?: boolean;
+}>`
+  .customRadio input[type='radio'] {
+    position: absolute;
+    left: -9999px;
+    margin-top: 16px;
+    font-size: 18px;
+  }
+  .customRadio input[type='radio'] + label {
+    position: relative;
+    padding: 15px 0 0 50px;
+    cursor: pointer;
+    color: #38568f;
+    font-weight: 600;
+  }
+  .customRadio input[type='radio'] + label:before {
+    content: '';
+    background: #ffffff;
+    border: ${({ isChecked }) =>
+      isChecked
+        ? ` 2px solid #38568f;;
+    `
+        : '0px'};
+    margin-top: 17px;
+    background-color: #ffffff;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .customRadio input[type='radio'] + label:after {
+    content: '';
+    background: linear-gradient(180deg, #38568f 0%, #38a1f7 100%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    margin-left: 9px;
+    margin-top: 16px;
+    opacity: 0;
+    transform: scale(2);
+    transition: transform 0.3s linear, opacity 0.3s linear;
+  }
+  .customRadio input[type='radio']:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  input[type='radio']:checked {
+    box-shadow: 0 0 0 3px 38568f;
+  }
+  input[type='checkbox']:checked {
+    box-shadow: 0 0 0 3px 38568f;
+  }
+  input:checked {
+    border: 6px solid black;
+  }
+
+  button:hover,
+  button:focus {
+    background-color: yellow;
+  }
+
+  button:active {
+    background-color: white;
+    color: black;
+    outline: 1px solid black;
+  }
 `;

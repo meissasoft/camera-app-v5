@@ -6,21 +6,12 @@ import Button from '@/components/core/Button';
 import Header from '@/components/core/Header';
 
 import { AadhaarXmlSvg } from '@/assets/svg/aadhaar_xml';
-import RadioInputStyled from '@/components/core/RadioInput';
+// import RadioInputStyled from '@/components/core/RadioInput';
 import MyCommenceCenteredModal from '@/components/core/CommenceVideomodel/index.page';
-import {
-  DivMain,
-  DivSvg,
-  FooterButtonStyle,
-  DivForm,
-  FormLabel,
-  RadioButtonLabel,
-  RadioButtonView,
-  CustomRadioButton,
-} from './index.styles';
+import { DivMain, DivSvg, FooterButtonStyle, DivForm, FormLabel, MainStyle } from './index.styles';
 /**
  *
- * @returns Language page
+ * @returns AadhaarXml page
  */
 const AadhaarXml = () => {
   const { t } = useTranslation();
@@ -30,6 +21,7 @@ const AadhaarXml = () => {
   const onClickHeaderIcon = () => {
     router.push('/');
   };
+  const [ischecked, setIsChecked] = useState(false);
 
   const handleContinue = () => {
     setModalShow(true);
@@ -46,32 +38,49 @@ const AadhaarXml = () => {
         </DivSvg>
         <DivForm>
           <FormLabel>Do you have an Aadhaar XML file?</FormLabel>
-          <RadioButtonView>
-            <CustomRadioButton>
-              <RadioInputStyled
-                name={'yes'}
-                className="radioInput"
-                selected={false}
-                onChange={() => console.log('ds')}
-              />
-              <span className="innerBall">12</span>
-            </CustomRadioButton>
-            <RadioButtonLabel className="form-check-label">Yes</RadioButtonLabel>
-          </RadioButtonView>
-          <RadioButtonView>
-            <CustomRadioButton>
-              <RadioInputStyled
-                name={'yes'}
-                className="radioInput"
-                selected={false}
-                onChange={() => console.log('ds')}
-              />
-              <span className="innerBall"></span>
-            </CustomRadioButton>
-            <RadioButtonLabel className="form-check-label">No</RadioButtonLabel>
-          </RadioButtonView>
         </DivForm>
+        <MainStyle isChecked={ischecked}>
+          <form action="#" className="customRadio customCheckbox m-0 p-0">
+            <div className="row mb-0">
+              <div className="row justify-content-start">
+                <div className="col-12">
+                  <div className="row">
+                    <input
+                      type="radio"
+                      name="textEditor"
+                      id="dreamweaver"
+                      checked
+                      onClick={() => (!ischecked ? setIsChecked(true) : setIsChecked(false))}
+                      className={ischecked ? 'checkclass' : 'notcheck'}
+                    />
+                    <label htmlFor="dreamweaver">Yes</label>
+                  </div>
+                  <div className="row">
+                    <input type="radio" name="textEditor" id="sublime" />
+                    <label htmlFor="sublime">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div></div>
+          <form>
+            <fieldset>
+              <div>
+                <input type="radio" id="contactChoice1" name="contact" value="email" checked />
+                <label htmlFor="contactChoice1">Email</label>
+
+                <input type="radio" id="contactChoice2" name="contact" value="phone" />
+                <label htmlFor="contactChoice2">Phone</label>
+
+                <input type="radio" id="contactChoice3" name="contact" value="mail" />
+                <label htmlFor="contactChoice3">Mail</label>
+              </div>
+            </fieldset>
+          </form>
+        </MainStyle>
       </div>
+
       <FooterButtonStyle>
         <div className="button-container">
           <Button isBottom onClick={handleContinue} className="m-auto">

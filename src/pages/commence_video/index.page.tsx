@@ -13,7 +13,6 @@ import { CardIcon } from '@/assets/svg/card-icon';
 
 import {
   DivButton,
-  DivDifference,
   DivMain,
   DivVerificationCardStyled,
   DocumentContainer,
@@ -27,7 +26,7 @@ import {
 
 /**
  *
- * @returns Verification document page
+ * @returns Commence Video Page
  */
 
 const onClickHeaderIcon = () => {
@@ -63,7 +62,7 @@ const Commenceyourvideo = () => {
   return (
     <DivMain>
       <div>
-        <Header onClick={onClickHeaderIcon} text={t('commence_your_video_kyc')} />
+        <Header onClick={onClickHeaderIcon} text={t('Commence your video KYC')} isLongText />
         <IdentificationStyled>
           <DivVerificationCardStyled>
             <CardIcon />
@@ -73,12 +72,11 @@ const Commenceyourvideo = () => {
             {t('please_keep_your_following_documents_handy_before_you_proceed_with_your_full_kyc_process.')}
           </IdentificationSmallTextStyled>
         </IdentificationStyled>
+        <StyledLine />
         <DocumentContainer>
-          <StyledLine />
           {document.map((doc, id) => (
             <Row key={id} onClick={onRowClickHandel}>
               <div className="col-1">{doc.Svg()}</div>
-              <DivDifference />
               <div className="col-11">
                 <IdentifyText>{doc.name}</IdentifyText>
               </div>
