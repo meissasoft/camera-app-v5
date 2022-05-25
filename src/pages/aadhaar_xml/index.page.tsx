@@ -1,27 +1,36 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-import React from 'react';
+import { useTranslation } from 'next-i18next';
 import Button from '@/components/core/Button';
 import Header from '@/components/core/Header';
 
+import { GreaterThenIcon } from '@/assets/svg/greaterthen-icon';
+
 import { AadhaarXmlSvg } from '@/assets/svg/aadhaar_xml';
+// import RadioInputStyled from '@/components/core/RadioInput';
+import MyCommenceCenteredModal from '@/components/core/CommenceVideomodel/index.page';
 import { DivMain, DivSvg, FooterButtonStyle, DivForm, FormLabel, MainStyle } from './index.styles';
 /**
  *
  * @returns Language page
  */
 const AadhaarXml = () => {
+  const { t } = useTranslation();
   const router = useRouter();
+  const [modalShow, setModalShow] = useState(false);
 
   const onClickHeaderIcon = () => {
     router.push('/');
   };
-  const [ischecked, setIsChecked] = React.useState(false);
+  const [ischecked, setIsChecked] = useState(false);
 
   const handleContinue = () => {
-    router.push(`/aadhaar_offline_kyc`);
+    setModalShow(true);
   };
-
+  const onClicOk = () => {
+    router.push('/aadhaar_offline_kyc');
+  };
   return (
     <DivMain>
       <div>
@@ -81,6 +90,24 @@ const AadhaarXml = () => {
           </Button>
         </div>
       </FooterButtonStyle>
+      <MyCommenceCenteredModal
+        show={modalShow}
+        onOk={onClicOk}
+        onHide={() => setModalShow(false)}
+        GreaterThenIcon={GreaterThenIcon}
+        heading={t('By clicking on ‘Agree’, you hereby:')}
+        paragraph1={t(
+          'Acknowledge the request made by Syntizen technologies private limited to provide personal details.'
+        )}
+        paragraph2={t(
+          'Provide my unconditional concent to access, copy and store all information there in by sharing the inofrmation.'
+        )}
+        paragraph3={t(
+          'Also undertake I/We are authorised to do so on behalf of the requestee organisation and tkae sole and complete responsibilitity for the same.'
+        )}
+        Disagree={t('Disagree')}
+        Agree={t('Agree')}
+      />
     </DivMain>
   );
 };

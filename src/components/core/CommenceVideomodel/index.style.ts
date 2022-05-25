@@ -167,10 +167,12 @@ export const Button2Model = styled.p`
   background-clip: text;
   text-fill-color: transparent;
   border-radius: 5px;
+  cursor: pointer;
 `;
 export const CrossButtonModel = styled.div`
   margin-right: -20px;
   margin-bottom: 18.88px;
+  cursor: pointer;
 `;
 export const ButtonBorderModel = styled.p`
   width: 104px;
@@ -190,5 +192,6 @@ export const ButtonBorderModel = styled.p`
 export const Center1Model = styled(Modal)`
   & > div > div {
     border: none !important;
+    cursor: pointer;
   }
 `;
