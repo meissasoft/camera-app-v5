@@ -13,6 +13,7 @@ import { ILanguage } from './index.types';
  *
  * @returns Language page
  */
+
 const ChooseLangugae = () => {
   const router = useRouter();
   const [langugaes, setLanguages] = useState<ILanguage[]>([
@@ -68,7 +69,7 @@ const ChooseLangugae = () => {
     },
   ]);
 
-  const [, setSelectedLanguage] = useState<string>(langugaes[0].code);
+  const [selectedLangugage, setSelectedLanguage] = useState<string>(langugaes[0].code);
 
   const onClickHeaderIcon = () => {
     router.push('/');
@@ -85,30 +86,30 @@ const ChooseLangugae = () => {
   };
 
   const handleContinue = () => {
-    router.push('/commence_video');
+    router.push(`${selectedLangugage}/commence_video`);
   };
   return (
     <DivMain>
-      <Header text="Choose a Language" onClick={onClickHeaderIcon} />
-      <DivMarginTop>
-        {langugaes.map(({ name, isActive }, ind) => (
-          <>
-            <Row onClick={() => onClickItem(ind)}>
-              <div className="col-11">
-                <StyledLanguage isActive={isActive}>{name}</StyledLanguage>
-              </div>
-              <div className="col-1">{isActive && <TickIcon />}</div>
-            </Row>
-            <StyledLine />
-          </>
-        ))}
-      </DivMarginTop>
+      <div>
+        <Header text="Choose a Language" onClick={onClickHeaderIcon} />
+        <DivMarginTop>
+          {langugaes.map(({ name, isActive }, ind) => (
+            <>
+              <Row onClick={() => onClickItem(ind)}>
+                <div className="col-11">
+                  <StyledLanguage isActive={isActive}>{name}</StyledLanguage>
+                </div>
+                <div className="col-1">{isActive && <TickIcon />}</div>
+              </Row>
+              <StyledLine />
+            </>
+          ))}
+        </DivMarginTop>
+      </div>
       <FooterButtonStyle>
-        <div className="button-container">
-          <Button isBottom onClick={handleContinue} className="m-auto">
-            Continue
-          </Button>
-        </div>
+        <Button isBottom onClick={handleContinue} className="m-auto">
+          Continue
+        </Button>
       </FooterButtonStyle>
     </DivMain>
   );
