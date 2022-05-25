@@ -9,23 +9,18 @@ import { PasswordIcon } from '@/assets/svg/password';
 import Button from '@/components/core/Button';
 import Heading from '@/components/core/Header/Header';
 import OTPInput from '@/components/core/Otp';
-import { useAppDispatch } from '@/hooks/useReduxTypedHooks';
-import { setVerificationStep } from '@/store/app';
 
 import { DivMain } from './index.styles';
 
 const VerifyOtp = () => {
-  const dispatch = useAppDispatch();
-
   const { t } = useTranslation('otpVerification');
 
   const handleBack = () => {
-    router.push('/login');
+    router.push('/aadhaar_number');
   };
 
   const handleContinue = () => {
-    router.push('/verification');
-    dispatch(setVerificationStep(1));
+    router.push('/download_successfully');
   };
 
   return (
@@ -70,17 +65,18 @@ const VerifyOtp = () => {
             <div className="title">Enter Share Code</div>
             <p className="description">Create a 6 digit code to secure your offline eKYC </p>
           </div>
-
-          <OTPInput
-            autoFocus
-            isNumberInput
-            length={4}
-            className="otpContainer"
-            inputClassName="otpInput"
-            onChangeOTP={(e) => {
-              console.log(e);
-            }}
-          />
+          <div>
+            <OTPInput
+              autoFocus
+              isNumberInput
+              length={4}
+              className="otpContainer"
+              inputClassName="otpInput"
+              onChangeOTP={(e) => {
+                console.log(e);
+              }}
+            />
+          </div>
         </div>
         <Button isBottom onClick={handleContinue} className="my-5 m-auto">
           Proceed

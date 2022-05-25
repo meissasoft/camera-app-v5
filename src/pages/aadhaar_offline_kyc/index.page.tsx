@@ -4,7 +4,7 @@ import Button from '@/components/core/Button';
 import Header from '@/components/core/Header';
 
 import StepLayout from '@/components/StepsLayout';
-import { DivMain, FooterButtonStyle, FormLabel } from './index.styles';
+import { DivMain, FooterButtonStyle, FormLabel, StyledSpan, ButtonContainer } from './index.styles';
 /**
  *
  * @returns Language page
@@ -18,7 +18,8 @@ const AadhaarOfflineKyc = () => {
   };
 
   const handleGeneration = () => {
-    console.log('Generate Clicked');
+    // console.log('Generate Clicked');
+    router.push('/aadhaar_number');
   };
   const handleProceed = () => {
     router.push('/aadhaar_number');
@@ -41,18 +42,16 @@ const AadhaarOfflineKyc = () => {
       </div>
       <FooterButtonStyle>
         <FormLabel>Don’t have an Aadhaar XML file?</FormLabel>
-
-        <div className="button-container">
-          <Button isBottom onClick={handleGeneration} className="m-auto" backgroundLight>
-            Generate Now
+        <ButtonContainer>
+          <Button isBottom onClick={handleGeneration} className="m-auto" isTransparent>
+            <StyledSpan>Generate Now</StyledSpan>
           </Button>
-        </div>
-
-        <div className="button-container">
+        </ButtonContainer>
+        <ButtonContainer>
           <Button isBottom onClick={handleProceed} className="m-auto">
             Proceed
           </Button>
-        </div>
+        </ButtonContainer>
       </FooterButtonStyle>
     </DivMain>
   );
