@@ -57,7 +57,7 @@ export const DivMain = styled.div`
   .otpContainer {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
 

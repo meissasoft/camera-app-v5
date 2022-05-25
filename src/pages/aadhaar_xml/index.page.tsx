@@ -13,7 +13,7 @@ import MyCommenceCenteredModal from '@/components/core/CommenceVideomodel/index.
 import { DivMain, DivSvg, FooterButtonStyle, DivForm, FormLabel, MainStyle } from './index.styles';
 /**
  *
- * @returns Language page
+ * @returns AadhaarXml page
  */
 const AadhaarXml = () => {
   const { t } = useTranslation();
