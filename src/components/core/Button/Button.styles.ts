@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
-
 import { COLORS } from '@/constants/colors';
 
 export const ButtonStyled = styled.button<{
   backgroundColor?: string;
   hoverColor?: string;
   isBottom?: boolean;
-  bgLight?: boolean;
+  backgroundLight?: boolean;
 }>`
   position: ${({ isBottom }) =>
     isBottom
@@ -20,8 +19,9 @@ export const ButtonStyled = styled.button<{
   width: 100%;
   height: 50px;
   background-color: ${({ backgroundColor }) => `${backgroundColor || COLORS.LABEL_COLOR}`};
-  color: ${({ bgLight }) =>
-    bgLight ? `linear-gradient(to right, #38568f 0%, #38a1f7 100%, #38568f 100%)` : `${COLORS.WHITE_100}`};
+  color: ${({ backgroundLight }) =>
+    backgroundLight ? `linear-gradient(to right, #38568f 0%, #38a1f7 100%, #38568f 100%)` : `${COLORS.WHITE_100}`};
+  background-color: linear-gradient(to right, #38568f 0%, #38a1f7 100%, #38568f 100%);
   border-radius: 5px;
   font-size: 20px;
   font-style: normal;
@@ -36,8 +36,8 @@ export const ButtonStyled = styled.button<{
   align-items: center;
   justify-content: center;
   height: 48px;
-  background-image: ${({ bgLight }) =>
-    bgLight
+  background-image: ${({ backgroundLight }) =>
+    backgroundLight
       ? `linear-gradient(to right, #E3E9Ef 0%, #E3EAF1 100%, #E3EdF4 100%);`
       : `linear-gradient(to right, #38568f 0%, #38a1f7 100%, #38568f 100%);`};
 
@@ -51,8 +51,8 @@ export const ButtonStyled = styled.button<{
     cursor: not-allowed;
   }
   &:hover {
-    background-image: ${({ bgLight }) =>
-      bgLight
+    background-image: ${({ backgroundLight }) =>
+      backgroundLight
         ? `linear-gradient(to right, #E3E9Ef 0%, #E3EAF1 100%, #E3EdF4 100%);`
         : `linear-gradient(to right, #38568f 0%, #38a1f7 100%, #38568f 100%);`};
   }

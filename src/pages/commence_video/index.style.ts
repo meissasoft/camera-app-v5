@@ -2,6 +2,10 @@ import styled from '@emotion/styled';
 
 export const DivMain = styled.div`
   padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 export const IdentificationStyled = styled.p`
   padding: 20px 0px;
@@ -42,6 +46,7 @@ export const Row = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  cursor: pointer;
 `;
 export const DocumentContainer = styled.div`
   margin-left: 10px;
@@ -49,12 +54,7 @@ export const DocumentContainer = styled.div`
 export const DivDifference = styled.div`
   margin-top: 45px;
 `;
-export const DivButton = styled.div`
-  width: 100%;
-  position: relative;
-  margin-top: 50%;
-  margin-bottom: 10%;
-`;
+export const DivButton = styled.div``;
 export const DivVerificationCardStyled = styled.div`
   position: relative;
   display: flex;
