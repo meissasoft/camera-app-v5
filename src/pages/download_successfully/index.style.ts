@@ -4,26 +4,19 @@ import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
   padding: 20px;
-  height: 100vh;
+  min-height: calc( 100vh - 20px );
   display:flex;
   flex-direction: column;
   justify-content: space-between;
+
   .heading {
     padding-left: 20px;
     padding-right: 20px;
   }
   .inner {
-    padding: 0px 20px;
     display: flex;
     flex-direction: column;
-    align-content  space-between;
     justify-content: flex-start;
-    align-items: center;
-    margin-top:10px;
-    background: ${COLORS.WHITE};
-    box-shadow: 0px -11px 13px rgba(0, 0, 0, 0.06);
-    border-radius: 20px 20px 0px 0px;
-    position: relative;
   }
 
   .title{
@@ -107,6 +100,11 @@ export const DivMain = styled.div`
       linear-gradient(to left, ${COLORS.SKY_100}, ${COLORS.FAUX_CHINESE_BLUE}) border-box;
     text-align: center;
     outline: none;
+  }
+
+  .btn-container: {
+    width: 100%;
+    margin-top: 80px;
   }
   .btn {
     padding: 0px 8px;

@@ -1,50 +1,29 @@
-// import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react';
 
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useAppDispatch } from '@/hooks/useReduxTypedHooks';
-import { setCardBack, setCardFront } from '@/store/app/appSlice';
 import { useUserMedia } from '@/hooks/useUserMedia';
 
-import {
-  Canvas,
-  DivCameraBox,
-  DivMain,
-  DivVideoBox,
-  CameraStyled,
-  CameraTextStyled,
-  Video,
-  CameraTextStyledWrapper,
-} from './index.style';
+import BottomTextLivePhoto from '@/components/LivePhotoBottom';
+import { Canvas, DivCameraBox, DivMain, DivVideoBox, CameraStyled, CameraTextStyledWrapper } from './index.style';
 
 /**
  *
- * @returns Camera page
+ * @returns LiveCameraPhoto page
  */
 
-const LiveCamera = () => {
-  // const router = useRouter();
+const LiveCameraPhoto = () => {
+  const router = useRouter();
   const CAPTURE_OPTIONS = {
     audio: false,
     video: { facingMode: 'environment' },
   };
 
-  const dispatch = useAppDispatch();
-  const { t } = useTranslation('live_photo');
-  const [isFront, setIsFront] = useState(true);
-  const [cardFront, setcardFront] = useState('');
-  const [cardBack, setcardBack] = useState('');
-  // const [isDone, setIsDone] = useState<boolean>(false);
-  const [instruction, setInstruction] = useState<any>(t('Stay Still for a live photo'));
-  const mediaStream = useUserMedia(CAPTURE_OPTIONS, !isFront);
+  const mediaStream = useUserMedia(CAPTURE_OPTIONS, false);
 
   const videoRef = useRef(null) as any;
+  const videoRef1 = useRef(null) as any;
   const photoRef = useRef(null) as any;
-
-  function handleCanPlay() {
-    videoRef.current.play();
-  }
 
   const takePhoto = () => {
     const width = 314;
@@ -56,60 +35,41 @@ const LiveCamera = () => {
     const ctx = photo.getContext('2d');
     ctx.drawImage(video, 0, 0, width, height);
     const dataUrl = photo.toDataURL();
-    if (cardFront.length < 5) {
-      setcardFront(dataUrl);
-      dispatch(setCardFront(dataUrl));
-      handleClear();
-      setIsFront(false);
-    } else if (cardBack.length < 5) {
-      setcardBack(dataUrl);
-      dispatch(setCardBack(dataUrl));
-      // router.push('/aadhaar_card');
-    }
+    console.log('dataUrl', dataUrl);
   };
 
   useEffect(() => {
     if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
       videoRef.current.srcObject = mediaStream;
+      videoRef.current.play();
+    }
+    if (mediaStream && videoRef1.current && !videoRef1.current.srcObject) {
+      videoRef1.current.srcObject = mediaStream;
+      videoRef1.current.play();
     }
   }, [mediaStream]);
 
   useEffect(() => {
-    // setIsDone(false);
     setTimeout(() => {
-      setInstruction(t('Capturing...Please wait'));
-    }, 3000);
-    setTimeout(faceDone, 8000);
-  });
+      router.push('/');
+    }, 10000);
+  }, [mediaStream]);
 
-  const faceDone = () => {
-    // setIsDone(true);
-    setTimeout(nextInstruction, 2000);
-  };
-
-  const nextInstruction = () => {
-    // setIsDone(false);
-    setInstruction(t('Photo Captured Successfully'));
-  };
-
-  function handleClear() {
-    const context = photoRef.current.getContext('2d');
-    context.clearRect(0, 0, photoRef.current.width, photoRef.current.height);
-    videoRef.current.srcObject = null;
-  }
+  // for clear image
+  // function handleClear() {
+  //   const context = photoRef.current.getContext('2d');
+  //   context.clearRect(0, 0, photoRef.current.width, photoRef.current.height);
+  // }
 
   return (
     <DivMain>
       <CameraStyled>
-        <DivCameraBox>
-          <Video ref={videoRef} onCanPlay={handleCanPlay} onClick={takePhoto}></Video>
-          <Canvas ref={photoRef}></Canvas>
-        </DivCameraBox>
-        <DivVideoBox></DivVideoBox>
+        <DivCameraBox ref={videoRef}></DivCameraBox>
+        <Canvas ref={photoRef}></Canvas>
+        <DivVideoBox ref={videoRef1} />
       </CameraStyled>
-
       <CameraTextStyledWrapper>
-        <CameraTextStyled>{instruction}</CameraTextStyled>
+        <BottomTextLivePhoto takePhoto={takePhoto} />
       </CameraTextStyledWrapper>
     </DivMain>
   );
@@ -120,4 +80,4 @@ export const getStaticProps = async ({ locale }: { locale: string }) => ({
     ...(await serverSideTranslations(locale, ['live_photo'])),
   },
 });
-export default LiveCamera;
+export default LiveCameraPhoto;

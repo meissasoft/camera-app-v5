@@ -7,7 +7,6 @@ import { BarIcon } from '@/assets/svg/barIcon';
 import { CrossIcon } from '@/assets/svg/crossIcon';
 import { PasswordIcon } from '@/assets/svg/password';
 import Button from '@/components/core/Button';
-import Heading from '@/components/core/Header/Header';
 import OTPInput from '@/components/core/Otp';
 
 import { DivMain } from './index.styles';
@@ -25,9 +24,6 @@ const VerifyOtp = () => {
 
   return (
     <DivMain>
-      <div className="heading">
-        <Heading text={t('mobile_verification')} onClick={handleBack} />
-      </div>
       <div className="inner">
         <div>
           <div className="barIcon">
@@ -67,7 +63,6 @@ const VerifyOtp = () => {
           </div>
           <div>
             <OTPInput
-              autoFocus
               isNumberInput
               length={4}
               className="otpContainer"
