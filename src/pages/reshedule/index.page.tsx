@@ -8,17 +8,52 @@ import Calendar from 'react-calendar';
 import Button from '@/components/core/Button';
 import Heading from '@/components/core/Header/Header';
 
-import { useAppDispatch } from '@/hooks/useReduxTypedHooks';
-import { setVerificationStep } from '@/store/app';
+import CalendarPrevLabel from '@/assets/svg/calendar_prev_label';
+import CalendarNextLabel from '@/assets/svg/calendar_next_label';
+import TickMark from '@/assets/svg/tick_mark';
 
-import 'react-calendar/dist/Calendar.css';
 import { ArrowBotom } from '@/assets/svg/arrow_bottom';
 import { ArrowTop } from '@/assets/svg/arrow_top';
-// import { TickMark } from '@/assets/svg/tick_mark';
-import { DivMain, CustomDropDown } from './index.style';
+
+import 'react-calendar/dist/Calendar.css';
+import {
+  DivMain,
+  CustomDropDown,
+  DescriptionDiv,
+  CalendarDiv,
+  Divider,
+  DefaultOptionDiv,
+  OptionsListDiv,
+  SingleOptionDiv,
+} from './index.style';
+
 const Reshedule = () => {
+  const [value, onChange] = useState(new Date());
   const [dropDownOpen, setDropDownOpen] = useState(false);
-  const dispatch = useAppDispatch();
+  const [selectedOption, setSelectedOption] = useState('Select a avaliable time Slot');
+  const [selectOptionIcon, setSelectOptionIcon] = useState<any>(null);
+  const AvaliableSlots = [
+    {
+      id: 1,
+      startTime: '10:00am',
+      endTime: '10:00am',
+    },
+    {
+      id: 2,
+      startTime: '10:15am',
+      endTime: '10:15am',
+    },
+    {
+      id: 3,
+      startTime: '10:30am',
+      endTime: '10:40am',
+    },
+    {
+      id: 4,
+      startTime: '10:45am',
+      endTime: '10:55am',
+    },
+  ];
 
   const { t } = useTranslation('otpVerification');
 
@@ -27,57 +62,76 @@ const Reshedule = () => {
   };
 
   const handleContinue = () => {
-    router.push('/verification');
-    dispatch(setVerificationStep(1));
+    console.log('Continue Clicked');
   };
-
-  const [value, onChange] = useState(new Date());
 
   return (
     <DivMain>
       <div>
-        <div className="heading">
-          <Heading text={t('Reschedule')} onClick={handleBack} />
-        </div>
+        <Heading text={t('Reschedule')} onClick={handleBack} />
 
         <div className="mt-5 text-center">
-          <p className="description">
-            {t('Please select a')} <span className="font-weight-bold">{t(' date & time ')}</span>
+          <DescriptionDiv>
+            {t('Please select a')} <span className="fw-bold">{t(' date & time ')}</span>
             {t('to reschedule a video call session with our agent')}
-          </p>
-        </div>
-        <div className="calendaMain my-3">
-          <Calendar onChange={onChange} value={value} />
+          </DescriptionDiv>
         </div>
 
+        <CalendarDiv>
+          <Calendar
+            onChange={onChange}
+            value={value}
+            prevLabel={<CalendarPrevLabel />}
+            nextLabel={<CalendarNextLabel />}
+            className="react-calendar"
+            selectRange={true}
+          />
+        </CalendarDiv>
+
+        <Divider></Divider>
+
         <CustomDropDown>
-          <div
-            className="defaultOption"
-            onClick={() => (dropDownOpen ? setDropDownOpen(false) : setDropDownOpen(true))}
-          >
-            <span>Select a avaliable time Slot</span>
+          <DefaultOptionDiv onClick={() => (dropDownOpen ? setDropDownOpen(false) : setDropDownOpen(true))}>
+            <span>{selectedOption}</span>
             <span>{!dropDownOpen ? <ArrowBotom /> : <ArrowTop />}</span>
-          </div>
-          {dropDownOpen && (
-            <div className="optionsListConatiner">
-              <div className="option">
-                <span>Option 1</span>
-                {/* <TickMark /> */}
-              </div>
-              <div className="option">
-                <span>Option 2</span>
-                {/* <TickMark /> */}
-              </div>
-              <div className="option">
-                <span>Option 3</span>
-                {/* <TickMark /> */}
-              </div>
-            </div>
-          )}
+          </DefaultOptionDiv>
+
+          <>
+            {dropDownOpen && (
+              <OptionsListDiv>
+                {AvaliableSlots.map((item, index) => {
+                  return (
+                    <SingleOptionDiv
+                      key={index}
+                      onClick={() => {
+                        if (selectOptionIcon === item.id) {
+                          setSelectedOption('Select a avaliable time Slot');
+                          setSelectOptionIcon(null);
+                        } else {
+                          setSelectedOption(`${item.startTime} to ${item.endTime}`);
+                          setDropDownOpen(false);
+                          setSelectOptionIcon(item.id);
+                        }
+                      }}
+                    >
+                      <span className={selectOptionIcon === item.id ? 'blueSpan' : 'planeSpan'}>
+                        {item.startTime} to {item.endTime}
+                      </span>
+                      {selectOptionIcon === item.id ? <TickMark /> : <></>}
+                    </SingleOptionDiv>
+                  );
+                })}
+              </OptionsListDiv>
+            )}
+          </>
         </CustomDropDown>
       </div>
 
-      <Button isBottom onClick={handleContinue} className="my-5 m-auto">
+      <Button
+        onClick={handleContinue}
+        className={`my-5 m-auto ${selectOptionIcon === null ? 'confirmDisable' : ''}`}
+        disabled={selectOptionIcon === null ? true : false}
+      >
         Confirm
       </Button>
     </DivMain>
