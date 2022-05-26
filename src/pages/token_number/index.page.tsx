@@ -5,23 +5,19 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Button from '@/components/core/Button';
 import Heading from '@/components/core/Header/Header';
-import { useAppDispatch } from '@/hooks/useReduxTypedHooks';
-import { setVerificationStep } from '@/store/app';
 
 import { DivMain } from './index.style';
 
 const TokenNumber = () => {
-  const dispatch = useAppDispatch();
-
   const { t } = useTranslation('otpVerification');
 
   const handleBack = () => {
-    router.push('/login');
+    router.push('/keeps_things_handy');
   };
 
   const handleContinue = () => {
-    router.push('/verification');
-    dispatch(setVerificationStep(1));
+    // router.push('/reshedule');
+    router.push('/initiating_video');
   };
 
   return (

@@ -4,10 +4,7 @@ import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
   padding: 20px 0px;
-  .heading {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  margin-top: 50px;
   .inner {
     padding: 0px 20px;
     display: flex;
