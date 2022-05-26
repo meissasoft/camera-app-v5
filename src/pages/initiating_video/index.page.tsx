@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 
+import { useEffect } from 'react';
 import Header from '@/components/core/Header';
 
 import { HourGlassIcon } from '@/assets/svg/hourglass-icon';
@@ -10,6 +11,12 @@ import { DivMain, DivSvg, DivForm, ParagraphStyled, TextStyled } from './index.s
  */
 const InitiatingVideo = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/initiated_video_call');
+    }, 3000);
+  }, []);
 
   const onClickHeaderIcon = () => {
     router.push('/reshedule');
