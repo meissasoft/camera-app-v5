@@ -48,7 +48,6 @@ export const IdentificationStyled = styled.p`
 `;
 
 export const IdentificationStyled2 = styled.p`
-  /* padding: 20px 0px; */
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -114,6 +113,7 @@ export const IdentificationSmallTextStyled2 = styled.p`
 export const StyledLine = styled.hr`
   opacity: 0.6;
   background-color: rgba(0, 0, 0, 0.1);
+  margin-top: -20px;
 `;
 
 export const IdentifyText = styled.span`
@@ -182,4 +182,5 @@ export const SpanParagraph = styled.div`
   flex-direction: row;
   gap: 5px;
   justify-content: center;
+  margin-top: -10px;
 `;
