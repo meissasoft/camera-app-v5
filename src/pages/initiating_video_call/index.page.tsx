@@ -3,7 +3,6 @@ import router from 'next/router';
 import React from 'react';
 
 import { useTranslation } from 'next-i18next';
-// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Header from '@/components/core/Header';
 import Button from '@/components/core/Button';
