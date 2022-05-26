@@ -23,11 +23,11 @@ const Reshedule = () => {
   const { t } = useTranslation('otpVerification');
 
   const handleBack = () => {
-    router.push('/login');
+    router.push('/token_number');
   };
 
   const handleContinue = () => {
-    router.push('/verification');
+    router.push('/initiating_video');
     dispatch(setVerificationStep(1));
   };
 

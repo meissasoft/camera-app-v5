@@ -62,7 +62,7 @@ const Commenceyourvideo = () => {
   return (
     <DivMain>
       <div>
-        <Header onClick={onClickHeaderIcon} text={t('Commence your video KYC')} isLongText />
+        <Header onClick={onClickHeaderIcon} text={t('Commence your video KYC')} />
         <IdentificationStyled>
           <DivVerificationCardStyled>
             <CardIcon />

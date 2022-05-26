@@ -18,32 +18,34 @@ const DownloadSuccessfully = () => {
   };
 
   const handleContinue = () => {
-    router.push('/initiating_video_call');
+    router.push('/keeps_things_handy');
   };
 
   return (
     <DivMain>
       <Heading text={t('Download Successfully')} onClick={handleBack} />
-
-      <div className="mt-5 text-center">
-        <CheckMarkSvg />
-        <div className="title">{t('File Download Successfully')}</div>
-        <p className="description">{t('Kindly re-confirm your share code to grant access to your XML file.')}</p>
+      <div className="inner">
+        <div className="mt-5 text-center">
+          <CheckMarkSvg />
+          <div className="title">{t('File Download Successfully')}</div>
+          <p className="description">{t('Kindly re-confirm your share code to grant access to your XML file.')}</p>
+        </div>
+        <OTPInput
+          autoFocus
+          isNumberInput
+          length={4}
+          className="otpContainer"
+          inputClassName="otpInput"
+          onChangeOTP={(e) => {
+            console.log(e);
+          }}
+        />
       </div>
-      <OTPInput
-        autoFocus
-        isNumberInput
-        length={4}
-        className="otpContainer"
-        inputClassName="otpInput"
-        onChangeOTP={(e) => {
-          console.log(e);
-        }}
-      />
-
-      <Button isBottom onClick={handleContinue} className="my-5 m-auto">
-        Proceed
-      </Button>
+      <div className="btn-container">
+        <Button onClick={handleContinue} className="m-auto">
+          Proceed
+        </Button>
+      </div>
     </DivMain>
   );
 };
