@@ -66,6 +66,16 @@ export const IdentificationTextStyled = styled.p`
   color: #121212;
   opacity: 0.6;
 `;
+export const BoldText = styled.span`
+  font-weight: 1000;
+  margin-top: 5px;
+  font-style: normal;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 0px !important;
+  color: #121212 !important;
+  opacity: 10 !important;
+`;
 
 export const IdentificationSelectStyled = styled.p`
   margin-top: 15px;

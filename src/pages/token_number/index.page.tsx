@@ -20,7 +20,7 @@ const TokenNumber = () => {
   };
 
   const handleContinue = () => {
-    router.push('/verification');
+    router.push('/reshedule');
     dispatch(setVerificationStep(1));
   };
 

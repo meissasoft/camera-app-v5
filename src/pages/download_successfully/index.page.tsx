@@ -18,7 +18,7 @@ const DownloadSuccessfully = () => {
   };
 
   const handleContinue = () => {
-    router.push('/token_number');
+    router.push('/initiating_video_call');
   };
 
   return (

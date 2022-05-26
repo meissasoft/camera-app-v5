@@ -19,15 +19,12 @@ import {
   DocumentContainer,
   IdentificationSelectStyled,
   IdentificationSmallTextStyled,
-  IdentificationSmallTextStyled2,
   IdentificationStyled,
-  IdentificationStyled2,
   IdentificationTextStyled,
-  IdentificationTextStyled2,
   Row,
-  SpanParagraph,
   SpanTagButton,
   StyledLine,
+  BoldText,
 } from './index.style';
 
 /**
@@ -43,7 +40,7 @@ const InitiatingVideo = () => {
   const { t } = useTranslation('commence_your_video');
 
   const handleStart = () => {
-    router.push('/aadhaar_xml');
+    router.push('/token_number');
   };
 
   const names = [
@@ -70,17 +67,16 @@ const InitiatingVideo = () => {
           <DivVerificationCardStyled>
             <CardIcon />
           </DivVerificationCardStyled>
-          <IdentificationStyled2>
+          {/* <IdentificationStyled2>
             <IdentificationTextStyled>
               please keep handy your <strong>PAN Card,</strong>
             </IdentificationTextStyled>
           </IdentificationStyled2>
+ */}
 
-          <SpanParagraph>
-            <IdentificationTextStyled2>{t('Blank Paper')}</IdentificationTextStyled2>
-            <IdentificationSmallTextStyled2>{t('and')}</IdentificationSmallTextStyled2>
-            <IdentificationTextStyled2>{t('Pen.')}</IdentificationTextStyled2>
-          </SpanParagraph>
+          <IdentificationTextStyled>
+            please keep handy your <BoldText>PAN Card, Blank Paper</BoldText> and <BoldText>Pen.</BoldText>
+          </IdentificationTextStyled>
         </IdentificationStyled>
         <DocumentContainer>
           <StyledLine />
@@ -91,15 +87,16 @@ const InitiatingVideo = () => {
           <IdentificationStyled>
             <IdentificationSelectStyled>{t('Select language')}</IdentificationSelectStyled>
             <IdentificationSmallTextStyled>
-              {t('We recommend you select a below listed Language to continue with your video call.')}
+              'We recommend you select a below listed <BoldText style={{ opacity: 10 }}>Language</BoldText> to continue
+              with your video call.
             </IdentificationSmallTextStyled>
           </IdentificationStyled>
           <DivButtons>
-            {names.map((doc, id) => (
-              <Row key={id}>
-                <div className="col-3">
-                  <button className="btn btn-primary">
-                    <SpanTagButton>{doc.name}</SpanTagButton>
+            {names.map((doc, index) => (
+              <Row>
+                <div key={index} className="col-3">
+                  <button className="btn btn-primary outline-none border-0 shadow-none">
+                    <SpanTagButton> {doc.name}</SpanTagButton>
                   </button>
                 </div>
               </Row>
