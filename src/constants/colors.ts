@@ -1,5 +1,5 @@
 export const COLORS = {
-  BLACK_100: '#000',
+  BLACK_100: '#000000',
   BLUE_100: '#0ea5e9',
   BLACK_200: '#323131',
   BLUE_150: '#587BE0',
@@ -38,4 +38,6 @@ export const COLORS = {
   WHITE_08: '#00000008',
   WHITE: '#ffff',
   GREY_12: '#121212',
+  GREY_600: '#6e6e6f',
+  BLUE_600: '#e2ecf3',
 };
