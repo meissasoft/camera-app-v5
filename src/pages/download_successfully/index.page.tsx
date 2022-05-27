@@ -1,58 +1,67 @@
 import router from 'next/router';
-
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
 import Button from '@/components/core/Button';
 import Heading from '@/components/core/Header/Header';
 import OTPInput from '@/components/core/Otp';
-
 import { CheckMarkSvg } from '@/assets/svg/check_mark';
-import { DivMain } from './index.style';
+import {
+  ButtonWrapper,
+  DivContent,
+  DivContentBody,
+  DivContentDescription,
+  DivContentTitle,
+  DivMain,
+  OtpContainerWrapper,
+} from './index.style';
+/**
+ *
+ * @returns DownloadSuccessfully page
+ */
 
 const DownloadSuccessfully = () => {
-  const { t } = useTranslation('otpVerification');
-
+  const { t } = useTranslation('download_successfully');
   const handleBack = () => {
     router.push('/otpVerification');
   };
-
   const handleContinue = () => {
     router.push('/keeps_things_handy');
   };
-
   return (
     <DivMain>
-      <Heading text={t('Download Successfully')} onClick={handleBack} />
-      <div className="inner">
-        <div className="mt-5 text-center">
+      <Heading text={t('download_successfully')} onClick={handleBack} />
+      <DivContentBody>
+        <DivContent>
           <CheckMarkSvg />
-          <div className="title">{t('File Download Successfully')}</div>
-          <p className="description">{t('Kindly re-confirm your share code to grant access to your XML file.')}</p>
-        </div>
-        <OTPInput
-          autoFocus
-          isNumberInput
-          length={4}
-          className="otpContainer"
-          inputClassName="otpInput"
-          onChangeOTP={(e) => {
-            console.log(e);
-          }}
-        />
-      </div>
-      <div className="btn-container">
+          <DivContentTitle>{t('file_download_successfully')}</DivContentTitle>
+          <DivContentDescription>
+            {t('kindly_reconfirm_your_share_code_to_grant_access_to_your_xml_file.')}
+          </DivContentDescription>
+        </DivContent>
+        <OtpContainerWrapper>
+          <OTPInput
+            autoFocus
+            isNumberInput
+            length={4}
+            inputClassName="otpInput"
+            onChangeOTP={(e) => {
+              console.log(e);
+            }}
+          />
+        </OtpContainerWrapper>
+      </DivContentBody>
+      <ButtonWrapper>
         <Button onClick={handleContinue} className="m-auto">
-          Proceed
+          {t('proceed')}
         </Button>
-      </div>
+      </ButtonWrapper>
     </DivMain>
   );
 };
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['otpVerification'])),
+    ...(await serverSideTranslations(locale, ['download_successfully'])),
   },
 });
 
