@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
 
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useUserMedia } from '@/hooks/useUserMedia';
 
 import PanCardPhotos from '@/components/core/PanCardPhoto/index.';
@@ -19,6 +21,7 @@ import {
  */
 
 const PanCardPhoto = () => {
+  const { t } = useTranslation('pan_card_photo');
   const router = useRouter();
   const CAPTURE_OPTIONS = {
     audio: false,
@@ -69,10 +72,19 @@ const PanCardPhoto = () => {
         <DivVideoBox ref={videoRef1} />
       </PanCameraStyled>
       <PanCameraTextStyledWrapper>
-        <PanCardPhotos takePhoto={takePhoto} />
+        <PanCardPhotos
+          takePhoto={takePhoto}
+          text1={t('position_the_pan_card_exactly_in_the_frame')}
+          text2={t('pan_card_captured_successfully')}
+          text3={t('hold_your_signature')}
+        />
       </PanCameraTextStyledWrapper>
     </DivMain>
   );
 };
-
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['pan_card_photo'])),
+  },
+});
 export default PanCardPhoto;

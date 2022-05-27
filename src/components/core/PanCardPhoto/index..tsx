@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import { useTranslation } from 'next-i18next';
-
 import { DoneIcon } from '@/assets/svg/done-icon';
 import { CameraTextStyled, DivCameraTextStyled } from './index.style';
 
@@ -12,21 +10,23 @@ import { CameraTextStyled, DivCameraTextStyled } from './index.style';
 
 interface Props {
   takePhoto?: any;
+  text1?: string;
+  text2?: string;
+  text3?: string;
 }
 
-const PanCardPhotos = ({ takePhoto }: Props) => {
-  const { t } = useTranslation('Pan_Card_Photo');
-  const [text, setText] = useState<any>(t('Position the PAN card exactly in the frame'));
+const PanCardPhotos = ({ takePhoto, text1, text2, text3 }: Props) => {
+  const [text, setText] = useState<any>(text1);
   const [icon, setIcon] = useState<boolean>(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setText(t('PAN card captured successfully'));
+      setText(text2);
       setIcon(true);
     }, 3000);
 
     setTimeout(() => {
-      setText(t('Hold your signature'));
+      setText(text3);
       takePhoto();
       setIcon(false);
     }, 5000);
