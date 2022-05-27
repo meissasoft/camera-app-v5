@@ -2,103 +2,24 @@ import styled from '@emotion/styled';
 
 import { COLORS } from '@/constants/colors';
 
+export const DescriptionDiv = styled.div`
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+  color: ${COLORS.GREY_12};
+  opacity: 0.6;
+`;
+
+export const Divider = styled.hr`
+  color: rgba(0, 0, 0, 0.7);
+`;
+
 export const DivMain = styled.div`
   padding: 20px;
   height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  .heading {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .inner {
-    padding: 0px 20px;
-    display: flex;
-    flex-direction: column;
-    align-content  space-between;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top:10px;
-    background: ${COLORS.WHITE};
-    box-shadow: 0px -11px 13px rgba(0, 0, 0, 0.06);
-    border-radius: 20px 20px 0px 0px;
-    position: relative;
-  }
-
-  .title{
-    margin-top: 20px; 
-    font-weight: 600;
-    font-size: 20px;
-    text-align: center,
-    color: ${COLORS.BLACK_100},
-  }
-
-  .description {
-    margin-top: 10px; 
-    font-size: 18px;
-    text-align: center;
-    color: ${COLORS.GREY_12};
-    opacity: 0.6;
-  }
-
-  .barIcon{
-    cursor:pointer;
-    text-align:center;
-  } 
-
-  .crossIcon{
-    position:absolute;
-    right: 12px;
-    top: 24px;
-    cursor: pointer;
-  }
-
-  .otpContainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-
-  .otpInput {
-    margin: 0px;
-    font-size: 30px;
-    font-weight: 700;
-    width: 40px;
-    border: none;
-    outline: none;
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    border-bottom: 2.5px solid rgba(0, 0, 0, 0.1);
-    margin-right: 10px;
-    text-align: center;
-    outline: none;
-    caret-color: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
-    padding: 0px 10px;
-  }
-  .otpInput:focus,
-  .otpInput:active
-  {
- 
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    border-bottom: 2.5px solid #38568f;
-  }
-
-  .text {
-    background: linear-gradient(90deg, ${COLORS.FAUX_CHINESE_BLUE} 0%, ${COLORS.SKY_100} 85%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-  }
 
   .otpInput1:focus {
     border: none;
@@ -108,80 +29,184 @@ export const DivMain = styled.div`
     text-align: center;
     outline: none;
   }
-  .btn {
-    padding: 0px 8px;
-  }
+`;
 
-  .btn-primary {
-    outline: none;
-    background-color: #e2ecf3;
-    border-color: #e2ecf3;
+export const CalendarDiv = styled.div`
+  border: 1px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+  .react-calendar {
+    padding-bottom: 20px;
+    border: none;
+    width: 400px;
+    max-width: 100%;
+    background-color: #fff;
+    color: #3f434a;
+    border-radius: 8px;
+    line-height: 1.125em;
+    font-size: 16px;
+  }
+  .react-calendar__month-view__days__day--neighboringMonth {
+    opacity: 0.4;
+    font-size: 16px;
     font-weight: 600;
-    font-size: 12px;
   }
-
-  .btn-primary:focus {
-    outline: none;
+  .react-calendar__tile {
+    font-size: 16px;
+    font-weight: 600;
   }
-
-  .code-text {
-    font-weight: 400;
-    font-size: 14px;
+  .react-calendar__navigation button {
+    color: black;
+    min-width: 44px;
+    background: none;
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
     text-align: center;
-    color: ${COLORS.GREY_12};
+    color: #000000;
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    background-color: #f8f8fa;
+  }
+  .react-calendar__navigation button[disabled] {
+    background-color: #f0f0f0;
+  }
+  abbr[title] {
+    text-decoration: none;
+  }
+  .react-calendar__month-view__days__day--weekend {
+    color: black;
+  }
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background: #f8f8fa;
+    color: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    border-radius: 6px;
+  }
+  .react-calendar__tile--now {
+    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    border-radius: 0px;
+    font-weight: bold;
+    color: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+  }
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus {
+    background: #38568f;
+    border-radius: 0px;
+    font-weight: bold;
+    color: #38a1f7;
+  }
+  .react-calendar__tile--hasActive:enabled:hover,
+  .react-calendar__tile--hasActive:enabled:focus {
+    background: #38568f;
+  }
+  .react-calendar__tile--active {
+    background: #38568f;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+  }
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    color: white;
+    border-radius: 0px;
+  }
+  .react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #d2d2d2;
+  }
+  .react-calendar__tile--range {
+    background: #d2d2d2;
+    color: #38568f;
+    border-radius: 0;
+  }
+  .react-calendar__tile--rangeStart {
+    border-radius: 0px;
+    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    color: white;
+  }
+  .react-calendar__tile--rangeEnd {
+    border-radius: 0px;
+    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    color: white;
+  }
+  .confirmDisable {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(269.82deg, #38a1f7 100%, #38568f 100%);
     opacity: 0.6;
   }
-  .tockenNumber{
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 49px;
-
-text-align: center;
-
-background: linear-gradient(180deg, #38568F 0%, #38A1F7 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-text-fill-color: transparent;
-  }
-  .estimatedTime{
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 49px;
-
-text-align: center;
-
-background: linear-gradient(180deg, #38568F 0%, #38A1F7 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-text-fill-color: transparent;
+  .confirmDisable:active,
+  .confirmDisable:focus {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(269.82deg, #38a1f7 100%, #38568f 100%);
+    opacity: 0.6;
   }
 `;
 
+export const DefaultOptionDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border: 1.2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #ffff;
+  span {
+    color: #121212;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    opacity: 0.6;
+  }
+`;
+
+export const OptionsListDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1.2px solid #000000;
+  border-radius: 5px;
+  padding: 0px 10px;
+  background: #ffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.09);
+  border-radius: 5px;
+  position: absolute;
+  width: 100%;
+`;
+export const SingleOptionDiv = styled.div`
+  border-bottom: 1.2px solid rgba(0, 0, 0, 0.2);
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 0.8;
+  .planeSpan {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    opacity: 0.8;
+  }
+  .blueSpan {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    background: linear-gradient(180deg, #38568f 0%, #38a1f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  :last-child {
+    border-bottom: none;
+  }
+`;
 export const CustomDropDown = styled.div`
-  .defaultOption {
-    display: flex;
-    justify-content: space-between;
-    border: 1.2px solid #000000;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  .optionsListConatiner {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    border: 1.2px solid #000000;
-    border-radius: 5px;
-    .option {
-      border-bottom: 1px solid gray;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
+  position: relative;
 `;
