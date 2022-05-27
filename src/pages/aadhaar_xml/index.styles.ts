@@ -1,3 +1,4 @@
+import { COLORS } from '@/constants/colors';
 import styled from '@emotion/styled';
 
 export const DivMain = styled.div`
@@ -46,7 +47,7 @@ export const YesButtonStyle = styled.p`
   font-weight: 600;
   font-size: 18px;
   line-height: 1px;
-  color: #121212;
+  color: ${COLORS.GREY_12};
   margin-left: -8px;
   opacity: 0.8;
 `;
@@ -56,7 +57,7 @@ export const FormLabel = styled.h5`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: #000000;
+  color: ${COLORS.BLACK_HEAVY};
 `;
 
 export const MainStyle = styled.div<{
@@ -71,19 +72,19 @@ export const MainStyle = styled.div<{
     position: relative;
     padding: 19px 0 0 50px;
     cursor: pointer;
-    color: #38568f;
+    color: ${COLORS.FAUX_CHINESE_BLUE};
     font-weight: 600;
   }
   .customRadio input[type='radio'] + label:before {
     content: '';
-    background: #ffffff;
+    background: ${COLORS.WHITE_200};
     border: ${({ isChecked }) =>
       isChecked
-        ? `2px solid #38568f;
+        ? `2px solid ${COLORS.FAUX_CHINESE_BLUE};
     `
-        : '2px solid #38568f;'};
+        : `2px solid ${COLORS.FAUX_CHINESE_BLUE};`};
     margin-top: 10px;
-    background-color: #ffffff;
+    background-color: ${COLORS.WHITE_200};
     cursor: pointer;
     height: 20px;
     width: 20px;
@@ -95,7 +96,7 @@ export const MainStyle = styled.div<{
   }
   .customRadio input[type='radio'] + label:after {
     content: '';
-    background: linear-gradient(180deg, #38568f 0%, #38a1f7 100%);
+    background: linear-gradient(180deg, ${COLORS.FAUX_CHINESE_BLUE} 0%, ${COLORS.SKY_100} 100%);
     width: 12px;
     height: 12px;
     border-radius: 50%;

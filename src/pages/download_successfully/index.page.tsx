@@ -8,7 +8,15 @@ import Heading from '@/components/core/Header/Header';
 import OTPInput from '@/components/core/Otp';
 
 import { CheckMarkSvg } from '@/assets/svg/check_mark';
-import { DivMain } from './index.style';
+import {
+  ButtonWrapper,
+  DivContent,
+  DivContentBody,
+  DivContentDescription,
+  DivContentTitle,
+  DivMain,
+  OtpContainerWrapper,
+} from './index.style';
 
 const DownloadSuccessfully = () => {
   const { t } = useTranslation('otpVerification');
@@ -24,28 +32,31 @@ const DownloadSuccessfully = () => {
   return (
     <DivMain>
       <Heading text={t('Download Successfully')} onClick={handleBack} />
-      <div className="inner">
-        <div className="mt-5 text-center">
+      <DivContentBody>
+        <DivContent>
           <CheckMarkSvg />
-          <div className="title">{t('File Download Successfully')}</div>
-          <p className="description">{t('Kindly re-confirm your share code to grant access to your XML file.')}</p>
-        </div>
-        <OTPInput
-          autoFocus
-          isNumberInput
-          length={4}
-          className="otpContainer"
-          inputClassName="otpInput"
-          onChangeOTP={(e) => {
-            console.log(e);
-          }}
-        />
-      </div>
-      <div className="btn-container">
+          <DivContentTitle>{t('File Download Successfully')}</DivContentTitle>
+          <DivContentDescription>
+            {t('Kindly re-confirm your share code to grant access to your XML file.')}
+          </DivContentDescription>
+        </DivContent>
+        <OtpContainerWrapper>
+          <OTPInput
+            autoFocus
+            isNumberInput
+            length={4}
+            inputClassName="otpInput"
+            onChangeOTP={(e) => {
+              console.log(e);
+            }}
+          />
+        </OtpContainerWrapper>
+      </DivContentBody>
+      <ButtonWrapper>
         <Button onClick={handleContinue} className="m-auto">
           Proceed
         </Button>
-      </div>
+      </ButtonWrapper>
     </DivMain>
   );
 };

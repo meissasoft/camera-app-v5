@@ -1,3 +1,4 @@
+import { COLORS } from '@/constants/colors';
 import styled from '@emotion/styled';
 
 export const DivMain = styled.div`
@@ -24,7 +25,7 @@ export const IdentificationSmallTextStyled = styled.p`
   font-weight: 400;
   font-size: 18px;
   text-align: center;
-  color: #121212;
+  color: ${COLORS.GREY_12};
   opacity: 0.6;
 `;
 export const StyledLine = styled.hr`

@@ -84,7 +84,6 @@ const Reshedule = () => {
             prevLabel={<CalendarPrevLabel />}
             nextLabel={<CalendarNextLabel />}
             className="react-calendar"
-            selectRange={true}
           />
         </CalendarDiv>
 

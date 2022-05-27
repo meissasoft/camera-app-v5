@@ -48,7 +48,6 @@ const AadhaarXml = () => {
                 id="dreamweaver"
                 checked
                 onClick={() => (ischecked ? setIsChecked(true) : setIsChecked(false))}
-                // className={ischecked ? 'checkclass' : 'notcheck'}
               />
               <label htmlFor="dreamweaver">
                 <YesButtonStyle>Yes</YesButtonStyle>

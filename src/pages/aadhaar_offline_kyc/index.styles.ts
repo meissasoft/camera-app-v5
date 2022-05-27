@@ -17,6 +17,10 @@ export const Row = styled.div`
   cursor: pointer;
 `;
 
+export const StepLayoutWrapper = styled.div`
+  margin-top: 5px;
+`;
+
 export const DivForm = styled.div`
   margin-top: 50px;
   text-align: left;
@@ -32,7 +36,7 @@ export const FormLabel = styled.h5`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: #000000;
+  color: ${COLORS.BLACK_HEAVY};
 `;
 
 export const StyledSpan = styled.span`

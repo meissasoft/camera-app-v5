@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
   padding: 20px;
@@ -20,7 +21,7 @@ export const TextStyled = styled.p`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: #000000;
+  color: ${COLORS.BLACK_HEAVY};
 `;
 export const ParagraphStyled = styled.p`
   font-style: normal;
@@ -28,6 +29,6 @@ export const ParagraphStyled = styled.p`
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  color: #121212;
+  color: ${COLORS.GREY_12};
   opacity: 0.6;
 `;

@@ -4,7 +4,7 @@ import Button from '@/components/core/Button';
 import Header from '@/components/core/Header';
 
 import StepLayout from '@/components/StepsLayout';
-import { DivMain, FooterButtonStyle, FormLabel, StyledSpan, ButtonContainer } from './index.styles';
+import { DivMain, FooterButtonStyle, FormLabel, StyledSpan, ButtonContainer, StepLayoutWrapper } from './index.styles';
 /**
  *
  * @returns Language page
@@ -31,14 +31,14 @@ const AadhaarOfflineKyc = () => {
     <DivMain>
       <div>
         <Header text="Aadhaar Offline KYC" onClick={onClickHeaderIcon} />
-        <div className="mt-5">
+        <StepLayoutWrapper>
           <StepLayout
             rightIcon={'arrow'}
             heading={'Upload from device'}
             content={'Zip file should not be more that 3 days old'}
             onClick={onClickCard}
           />
-        </div>
+        </StepLayoutWrapper>
       </div>
       <FooterButtonStyle>
         <FormLabel>Don’t have an Aadhaar XML file?</FormLabel>

@@ -16,7 +16,7 @@ export const DivMain = styled.div`
   }
   .btn:active,
   .btn:focus {
-    background: linear-gradient(269.82deg, #38a1f7 0.1%, #38568f 99.85%);
+    background: linear-gradient(269.82deg, ${COLORS.SKY_100} 0.1%, ${COLORS.FAUX_CHINESE_BLUE} 99.85%);
     border: none;
     color: white;
     outline: transparent;
@@ -27,9 +27,8 @@ export const DivMain = styled.div`
   }
   .btn-primary {
     outline: none;
-    background-color: #e2ecf3;
+    background-color: ${COLORS.PARROT_100};
     border: none;
-    /* border-color: #e2ecf3; */
     font-weight: 600;
     font-size: 12px;
   }
@@ -105,7 +104,7 @@ export const IdentificationSmallTextStyled = styled.p`
   font-weight: 400;
   font-size: 18px;
   text-align: center;
-  color: #121212;
+  color: ${COLORS.GREY_12};
   opacity: 0.6;
 `;
 export const IdentificationSmallTextStyled2 = styled.p`
@@ -113,7 +112,7 @@ export const IdentificationSmallTextStyled2 = styled.p`
   font-weight: 600;
   font-size: 18px;
   text-align: center;
-  color: #121212;
+  color: ${COLORS.GREY_12};
   opacity: 0.6;
 `;
 export const StyledLine = styled.hr`

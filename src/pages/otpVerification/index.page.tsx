@@ -9,7 +9,18 @@ import { PasswordIcon } from '@/assets/svg/password';
 import Button from '@/components/core/Button';
 import OTPInput from '@/components/core/Otp';
 
-import { DivMain } from './index.styles';
+import {
+  BarIconDiv,
+  CodeText,
+  CrossIconDiv,
+  DivMain,
+  DivMainContainer,
+  OtpContainer,
+  ResendText,
+  VerificationCodeDescription,
+  VerificationCodeDiv,
+  VerificationCodeTitle,
+} from './index.styles';
 
 const VerifyOtp = () => {
   const { t } = useTranslation('otpVerification');
@@ -24,59 +35,64 @@ const VerifyOtp = () => {
 
   return (
     <DivMain>
-      <div className="inner">
+      <DivMainContainer>
         <div>
-          <div className="barIcon">
+          <BarIconDiv>
             <BarIcon />
-          </div>
-          <div className="crossIcon" onClick={handleBack}>
+          </BarIconDiv>
+          <CrossIconDiv onClick={handleBack}>
             <CrossIcon />
-          </div>
-          <div className="mt-5 text-center">
+          </CrossIconDiv>
+          <VerificationCodeDiv>
             <PasswordIcon />
-            <div className="title">{t('verification_code')}</div>
-            <p className="description">{t('please_enter_the_verification_code_we_sent_to_your_phone_number')}</p>
-          </div>
-          <OTPInput
-            autoFocus
-            isNumberInput
-            length={6}
-            className="otpContainer"
-            inputClassName="otpInput"
-            onChangeOTP={(e) => {
-              console.log(e);
-            }}
-          />
+            <VerificationCodeTitle>{t('verification_code')}</VerificationCodeTitle>
+            <VerificationCodeDescription>
+              {t('please_enter_the_verification_code_we_sent_to_your_phone_number')}
+            </VerificationCodeDescription>
+          </VerificationCodeDiv>
+          <OtpContainer>
+            <OTPInput
+              autoFocus
+              isNumberInput
+              length={6}
+              inputClassName="otpInput"
+              onChangeOTP={(e) => {
+                console.log(e);
+              }}
+            />
+          </OtpContainer>
 
           <div className="d-flex w-100 justify-content-center align-items-center mt-4 mb-4 ">
-            <span className="mx-2 code-text">{t("i_did'nt_receive_a_code")}</span>
+            <CodeText className="mx-2">{t("i_did'nt_receive_a_code")}</CodeText>
             <button className="btn btn-primary">
-              <span className="text">{t('resend')}</span>
+              <ResendText>{t('resend')}</ResendText>
             </button>
           </div>
 
           <div className="border text-dark w-100 mb-4"></div>
 
           <div className="text-center">
-            <div className="title">Enter Share Code</div>
-            <p className="description">Create a 6 digit code to secure your offline eKYC </p>
+            <VerificationCodeTitle>Enter Share Code</VerificationCodeTitle>
+            <VerificationCodeDescription>
+              Create a 6 digit code to secure your offline eKYC{' '}
+            </VerificationCodeDescription>
           </div>
-          <div>
+          <OtpContainer>
             <OTPInput
               isNumberInput
               length={4}
-              className="otpContainer"
               inputClassName="otpInput"
               onChangeOTP={(e) => {
                 console.log(e);
               }}
             />
-          </div>
+          </OtpContainer>
         </div>
+
         <Button isBottom onClick={handleContinue} className="my-5 m-auto">
           Proceed
         </Button>
-      </div>
+      </DivMainContainer>
     </DivMain>
   );
 };
