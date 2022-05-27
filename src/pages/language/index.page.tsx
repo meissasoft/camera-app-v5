@@ -13,6 +13,7 @@ import { ILanguage } from './index.types';
  *
  * @returns Language page
  */
+
 const ChooseLangugae = () => {
   const router = useRouter();
   const [langugaes, setLanguages] = useState<ILanguage[]>([

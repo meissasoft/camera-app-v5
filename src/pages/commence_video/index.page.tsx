@@ -34,21 +34,22 @@ const onClickHeaderIcon = () => {
 };
 
 const Commenceyourvideo = () => {
-  const { t } = useTranslation('commence_your_video');
+  const { t } = useTranslation('commence_video');
   const document = [
     {
-      name: t('Aadhaar Verification'),
+      name: t('aadhaar_verification'),
       Svg: GreaterThenIcon,
     },
     {
-      name: t('PAN Capture'),
+      name: t('video_call_(q&a)'),
       Svg: GreaterThenIcon,
     },
     {
-      name: t('Live Photo'),
+      name: t('photo_capture'),
       Svg: GreaterThenIcon,
     },
-    { name: t('Video Call (Liveness check)'), Svg: GreaterThenIcon },
+    { name: t('pan_capture'), Svg: GreaterThenIcon },
+    { name: t('signature_capture'), Svg: GreaterThenIcon },
   ];
 
   const handleStart = () => {
@@ -61,14 +62,14 @@ const Commenceyourvideo = () => {
   return (
     <DivMain>
       <div>
-        <Header onClick={onClickHeaderIcon} text={t('Commence your video KYC')} isLongText />
+        <Header onClick={onClickHeaderIcon} text={t('Commence your video KYC')} />
         <IdentificationStyled>
           <DivVerificationCardStyled>
             <CardIcon />
           </DivVerificationCardStyled>
-          <IdentificationTextStyled>{t('Verify your identity')}</IdentificationTextStyled>
+          <IdentificationTextStyled>{t('verify_your_identity')}</IdentificationTextStyled>
           <IdentificationSmallTextStyled>
-            {t('Please keep your following documents handy before you proceed with your full KYC process.')}
+            {t('please_keep_your_following_documents_handy_before_you_proceed_with_your_full_kyc_process.')}
           </IdentificationSmallTextStyled>
         </IdentificationStyled>
         <StyledLine />
@@ -85,7 +86,7 @@ const Commenceyourvideo = () => {
       </div>
       <DivButton>
         <Button isBottom onClick={handleStart} className="m-auto">
-          Start
+          {t('start')}
         </Button>
       </DivButton>
     </DivMain>
@@ -94,7 +95,7 @@ const Commenceyourvideo = () => {
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['commence_your_video'])),
+    ...(await serverSideTranslations(locale, ['commence_video'])),
   },
 });
 

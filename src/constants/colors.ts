@@ -1,6 +1,7 @@
 export const COLORS = {
   BLACK_100: '#000',
   BLUE_100: '#0ea5e9',
+  BLACK_200: '#323131',
   BLUE_150: '#587BE0',
   SKY_100: '#38A1F7',
   FAUX_CHINESE_BLUE: '#38568F',

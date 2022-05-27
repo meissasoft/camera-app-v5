@@ -5,8 +5,6 @@ import { useTranslation } from 'next-i18next';
 import Button from '@/components/core/Button';
 import Header from '@/components/core/Header';
 
-import { GreaterThenIcon } from '@/assets/svg/greaterthen-icon';
-
 import { AadhaarXmlSvg } from '@/assets/svg/aadhaar_xml';
 // import RadioInputStyled from '@/components/core/RadioInput';
 import MyCommenceCenteredModal from '@/components/core/CommenceVideomodel/index.page';
@@ -78,19 +76,19 @@ const AadhaarXml = () => {
         show={modalShow}
         onOk={onClicOk}
         onHide={() => setModalShow(false)}
-        GreaterThenIcon={GreaterThenIcon}
-        heading={t('By clicking on ‘Agree’, you hereby:')}
-        paragraph1={t(
+        userConsent={t('User Consent')}
+        clickingAgree={t('By clicking on ‘Agree’, you hereby:')}
+        listParaOne={t(
           'Acknowledge the request made by Syntizen technologies private limited to provide personal details.'
         )}
-        paragraph2={t(
+        listParaTwo={t(
           'Provide my unconditional concent to access, copy and store all information there in by sharing the inofrmation.'
         )}
-        paragraph3={t(
+        listParaThree={t(
           'Also undertake I/We are authorised to do so on behalf of the requestee organisation and tkae sole and complete responsibilitity for the same.'
         )}
-        Disagree={t('Disagree')}
-        Agree={t('Agree')}
+        disagree={t('Disagree')}
+        agree={t('Agree')}
       />
     </DivMain>
   );

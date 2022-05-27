@@ -58,11 +58,11 @@ const Reshedule = () => {
   const { t } = useTranslation('otpVerification');
 
   const handleBack = () => {
-    router.push('/login');
+    router.push('/token_number');
   };
 
   const handleContinue = () => {
-    console.log('Continue Clicked');
+    router.push('/initiating_video');
   };
 
   return (
