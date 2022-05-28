@@ -34,7 +34,6 @@ export const DivMain = styled.div`
     text-fill-color: transparent;
     border-bottom: 2.5px solid ${COLORS.FAUX_CHINESE_BLUE};
   }
-
 `;
 
 export const DivContentBody = styled.div`
