@@ -6,7 +6,15 @@ export const DivMain = styled.div`
   background: ${COLORS.BLACK_200};
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  width: 100%;
+
+  height: calc(100vh - 40px);
+  @media (max-height: 720px) {
+    height: calc(100vh - 60px);
+  }
+  @media (max-height: 670px) {
+    height: calc(100vh - 40px);
+  }
 `;
 
 export const DivTextStyled = styled.div`
@@ -17,7 +25,12 @@ export const DivTextStyled = styled.div`
 export const DivCameraBox = styled.video`
   width: 100%;
   object-fit: cover;
-  height: 100vh;
+  @media (max-height: 720px) {
+    height: calc(100vh - 60px);
+  }
+  @media (max-height: 670px) {
+    height: calc(100vh - 40px);
+  }
 `;
 
 export const DivFrontCamContainer = styled.div`

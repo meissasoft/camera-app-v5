@@ -23,7 +23,7 @@ import {
  * @returns status_updated_successfully page
  */
 const onClickHeaderIcon = () => {
-  router.push('/video_screen');
+  router.push('/signature_captured');
 };
 
 const StatusUpdatedSuccessfully = () => {
@@ -57,10 +57,10 @@ const StatusUpdatedSuccessfully = () => {
   return (
     <DivMain>
       <div>
-        {displayLottie && <Lottie options={defaultOptions} isStopped={stop} style={{ position: 'fixed' }} />}
         <Header text={t('status')} onClick={onClickHeaderIcon} />
         <VerificationCardStyled>
           <VerifiiedIcon />
+          {displayLottie && <Lottie options={defaultOptions} isStopped={stop} style={{ position: 'fixed' }} />}
         </VerificationCardStyled>
         <VerificationSuccessfulTextStyled>{t('kyc_updated_successfully')}</VerificationSuccessfulTextStyled>
         <VerificationSuccessfulSmallTextStyled>

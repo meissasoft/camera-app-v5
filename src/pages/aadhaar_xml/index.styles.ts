@@ -6,7 +6,13 @@ export const DivMain = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: calc(100vh - 40px);
+  @media (max-height: 720px) {
+    height: calc(100vh - 100px);
+  }
+  @media (max-height: 670px) {
+    height: calc(100vh - 40px);
+  }
 `;
 
 export const Row = styled.div`
@@ -68,7 +74,7 @@ export const MainStyle = styled.div`
   .customRadio input[type='radio'] + label:before {
     content: '';
     background: ${COLORS.WHITE_200};
-    border: 2px solid ${COLORS.FAUX_CHINESE_BLUE}
+    border: 2px solid ${COLORS.FAUX_CHINESE_BLUE};
     margin-top: 10px;
     background-color: ${COLORS.WHITE_200};
     cursor: pointer;

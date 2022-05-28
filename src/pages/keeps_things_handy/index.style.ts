@@ -4,15 +4,26 @@ import { COLORS } from '@/constants/colors';
 export const DivMain = styled.div`
   padding: 20px;
   height: calc(100vh - 40px);
+  @media (max-height: 720px) {
+    height: calc(100vh - 100px);
+  }
+  @media (max-height: 670px) {
+    height: calc(100vh - 40px);
+  }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   .btn {
-    padding: 5px 8px 5px 6px;
-    width: 85px;
-    height: 36px;
+    width: 100%;
+    height: 30px;
     border-radius: 5px;
     margin: 0px;
+    min-width: 0;
+    font-size: 16px;
+    padding: 0px 0px;
+    &:hover {
+      color: ${COLORS.WHITE};
+    }
   }
 `;
 export const IdentificationStyled = styled.div`
@@ -135,23 +146,23 @@ export const StyledSpan = styled.span`
   background-clip: text;
   text-fill-color: transparent;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 export const DivButtons = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 90px);
+  grid-template-columns: repeat(4, 85px);
   row-gap: 10px;
-  column-gap: 20px;
+  column-gap: 10px;
   border: none;
   justify-content: center;
   margin-left: 20px;
   margin-right: 20px;
 
   @media (max-width: 400px) {
-    grid-template-columns: repeat(3, 90px);
-    column-gap: 15px;
-    row-gap: 5px;
+    grid-template-columns: repeat(3, 100px);
+    column-gap: 10px;
+    row-gap: 10px;
   }
 `;
 

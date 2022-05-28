@@ -131,7 +131,7 @@ const Reshedule = () => {
       <Button
         onClick={handleContinue}
         className={`my-5 m-auto ${selectOptionIcon === null ? 'confirmDisable' : ''}`}
-        disabled={selectOptionIcon === null ? true : false}
+        // disabled={selectOptionIcon === null ? true : false}
       >
         {t('confirm')}
       </Button>

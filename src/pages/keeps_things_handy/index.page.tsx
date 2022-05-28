@@ -23,7 +23,6 @@ import {
   IdentificationStyled,
   IdentificationTextStyled,
   IdentificationStyled2,
-  Row,
   StyledSpan,
   StyledLine,
   BoldText,
@@ -96,6 +95,7 @@ const KeepThingsHandy = () => {
           <IdentificationTextStyled>
             <LightText>{t('please_keep_handy_your')}</LightText> <BoldText>{t('pan_card_blank_paper')}</BoldText>{' '}
             <LightText> {t('and')}</LightText>
+            &nbsp;
             <BoldText>{t('pen')}</BoldText>
           </IdentificationTextStyled>
         </IdentificationStyled>
@@ -113,19 +113,17 @@ const KeepThingsHandy = () => {
           </IdentificationStyled2>
           <DivButtons>
             {languages.map(({ name, selected }, index) => (
-              <Row>
-                <div key={index} className="col-3">
-                  {selected ? (
-                    <Button className="btn shadow-none" onClick={() => onClickLangugae(index)}>
-                      {name}
-                    </Button>
-                  ) : (
-                    <Button isTransparent className="btn shadow-none" onClick={() => onClickLangugae(index)}>
-                      <StyledSpan>{name}</StyledSpan>
-                    </Button>
-                  )}
-                </div>
-              </Row>
+              <>
+                {selected ? (
+                  <Button className="btn shadow-none" onClick={() => onClickLangugae(index)}>
+                    {name}
+                  </Button>
+                ) : (
+                  <Button isTransparent className="btn shadow-none" onClick={() => onClickLangugae(index)}>
+                    <StyledSpan>{name}</StyledSpan>
+                  </Button>
+                )}
+              </>
             ))}
           </DivButtons>
         </DocumentContainer>

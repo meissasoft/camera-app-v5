@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { detect } from 'detect-browser';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import router from 'next/router';
@@ -13,6 +14,8 @@ import { DivCameraBox, DivFrontCam, DivMain, DivFrontCamContainer, DivTextStyled
  */
 
 const InitiatedVideoCall = () => {
+  const browser = detect();
+
   const front = {
     audio: true,
     video: { facingMode: 'user' }, // change to user for front camera
@@ -27,25 +30,29 @@ const InitiatedVideoCall = () => {
   const blobsRecordedBack: any = [];
 
   useEffect(() => {
-    if (mediaStreamFront && videoRefFront.current && !videoRefFront.current.srcObject) {
+    if (mediaStreamFront && videoRefFront.current && !videoRefFront.current.srcObject && browser) {
       videoRefFront.current.setAttribute('autoplay', '');
       videoRefFront.current.setAttribute('muted', '');
       videoRefFront.current.setAttribute('playsinline', '');
       videoRefFront.current.srcObject = mediaStreamFront;
       videoRefFront.current.play();
-      mediaRecorderFront.current = new MediaRecorder(mediaStreamFront, { mimeType: 'video/mp4' });
+      mediaRecorderFront.current = new MediaRecorder(mediaStreamFront, {
+        mimeType: browser.name === 'chrome' ? 'video/webm' : 'video/mp4',
+      });
       mediaRecorderFront.current.start(1000);
       mediaRecorderFront.current.addEventListener('dataavailable', function (e: any) {
         blobsRecordedFront.push(e.data);
       });
     }
-    if (mediaStreamFront && videoRefBack.current && !videoRefBack.current.srcObject) {
+    if (mediaStreamFront && videoRefBack.current && !videoRefBack.current.srcObject && browser) {
       videoRefBack.current.setAttribute('autoplay', '');
       videoRefBack.current.setAttribute('muted', '');
       videoRefBack.current.setAttribute('playsinline', '');
       videoRefBack.current.srcObject = mediaStreamFront;
       videoRefBack.current.play();
-      mediaRecorderBack.current = new MediaRecorder(mediaStreamFront, { mimeType: 'video/mp4' });
+      mediaRecorderBack.current = new MediaRecorder(mediaStreamFront, {
+        mimeType: browser.name === 'chrome' ? 'video/webm' : 'video/mp4',
+      });
       mediaRecorderBack.current?.start(1000);
       mediaRecorderBack.current.addEventListener('dataavailable', function (e: any) {
         blobsRecordedBack.push(e.data);
@@ -56,7 +63,7 @@ const InitiatedVideoCall = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push('/live_photo');
-    }, 6000);
+    }, 10000);
   }, []);
 
   return (

@@ -44,6 +44,8 @@ export const ButtonStyled = styled.button<{ backgroundColor?: string; hoverColor
     cursor: not-allowed;
   }
   &:hover {
-    background-image: linear-gradient(to right, #38568f 0%, #38a1f7 90%, #38568f 90%);
-  }
+    ${({ isTransparent }) =>
+      isTransparent
+        ? `background-image:none;`
+        : `background-image: linear-gradient(to right, #38568f 0%, #38a1f7 90%, #38568f 90%); `}
 `;
