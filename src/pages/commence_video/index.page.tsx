@@ -48,8 +48,14 @@ const Commenceyourvideo = () => {
       name: t('photo_capture'),
       Svg: GreaterThenIcon,
     },
-    { name: t('pan_capture'), Svg: GreaterThenIcon },
-    { name: t('signature_capture'), Svg: GreaterThenIcon },
+    {
+      name: t('pan_capture'),
+      Svg: GreaterThenIcon,
+    },
+    {
+      name: t('signature_capture'),
+      Svg: GreaterThenIcon,
+    },
   ];
 
   const handleStart = () => {
@@ -62,7 +68,7 @@ const Commenceyourvideo = () => {
   return (
     <DivMain>
       <div>
-        <Header onClick={onClickHeaderIcon} text={t('Commence your video KYC')} />
+        <Header onClick={onClickHeaderIcon} text={t('commence_your_video_kyc')} />
         <IdentificationStyled>
           <DivVerificationCardStyled>
             <CardIcon />

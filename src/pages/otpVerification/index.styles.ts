@@ -1,10 +1,22 @@
 import styled from '@emotion/styled';
-
 import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
-  padding: 20px 0px;
   margin-top: 50px;
+`;
+
+export const DivMainContainer = styled.div`
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  background: ${COLORS.WHITE};
+  box-shadow: 0px -11px 13px rgba(0, 0, 0, 0.06);
+  border-radius: 20px 20px 0px 0px;
+  min-height: 90vh;
 
   .otpInput {
     margin: 0px;
@@ -46,7 +58,6 @@ export const DivMain = styled.div`
   .btn {
     padding: 0px 8px;
   }
-
   .btn-primary {
     outline: none;
     background-color: ${COLORS.PARROT_100};
@@ -54,63 +65,9 @@ export const DivMain = styled.div`
     font-weight: 600;
     font-size: 12px;
   }
-
   .btn-primary:focus {
     outline: none;
   }
-`;
-
-export const DivMainContainer = styled.div`
-  padding: 0px 20px;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 10px;
-  background: ${COLORS.WHITE};
-  box-shadow: 0px -11px 13px rgba(0, 0, 0, 0.06);
-  border-radius: 20px 20px 0px 0px;
-  position: relative;
-`;
-
-export const BarIconDiv = styled.div`
-  cursor: pointer;
-  text-align: center;
-`;
-
-export const CrossIconDiv = styled.div`
-  position: absolute;
-  right: 12px;
-  top: 24px;
-  cursor: pointer;
-`;
-
-export const VerificationCodeDiv = styled.div`
-  margin-top: 5px;
-  text-align: center;
-`;
-
-export const VerificationCodeTitle = styled.p`
-    margin-top: 20px; 
-    font-weight: 600;
-    font-size: 20px;
-    text-align: center,
-    color: ${COLORS.BLACK_100},
-`;
-
-export const VerificationCodeDescription = styled.p`
-  margin-top: 10px;
-  font-size: 18px;
-  text-align: center;
-  color: ${COLORS.GREY_12};
-  opacity: 0.6;
-`;
-
-export const OtpContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
 `;
 
 export const CodeText = styled.span`
@@ -121,10 +78,49 @@ export const CodeText = styled.span`
   opacity: 0.6;
 `;
 
+export const BarIconDiv = styled.div`
+  cursor: pointer;
+  text-align: center;
+`;
+export const CrossIconDiv = styled.div`
+  display: flex;
+  margin-top: -15px;
+  justify-content: flex-end;
+  cursor: pointer;
+`;
+export const VerificationCodeDiv = styled.div`
+  margin-top: 5px;
+  text-align: center;
+`;
+export const VerificationCodeTitle = styled.p`
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center,
+  color: ${COLORS.BLACK_100},
+`;
+export const VerificationCodeDescription = styled.p`
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+  color: ${COLORS.GREY_12};
+  opacity: 0.6;
+`;
+export const OtpContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
 export const ResendText = styled.span`
   background: linear-gradient(90deg, ${COLORS.FAUX_CHINESE_BLUE} 0%, ${COLORS.SKY_100} 85%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+`;
+
+export const ButtonContainer = styled.div`
+  margin-top: 100px;
+  width: 100%;
 `;

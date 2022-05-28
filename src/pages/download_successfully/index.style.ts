@@ -1,14 +1,11 @@
 import styled from '@emotion/styled';
-
 import { COLORS } from '@/constants/colors';
-
 export const DivMain = styled.div`
   padding: 20px;
   min-height: calc(100vh - 20px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   .otpInput {
     margin: 0px;
     font-size: 30px;
@@ -38,14 +35,6 @@ export const DivMain = styled.div`
     border-bottom: 2.5px solid ${COLORS.FAUX_CHINESE_BLUE};
   }
 
-  .otpInput1:focus {
-    border: none;
-    border-bottom: 2px solid #0000;
-    background: linear-gradient(white, white) padding-box,
-      linear-gradient(to left, ${COLORS.SKY_100}, ${COLORS.FAUX_CHINESE_BLUE}) border-box;
-    text-align: center;
-    outline: none;
-  }
 `;
 
 export const DivContentBody = styled.div`

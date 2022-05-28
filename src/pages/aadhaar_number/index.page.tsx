@@ -2,6 +2,7 @@ import router from 'next/router';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
+import { useTranslation } from 'next-i18next';
 import { BarIcon } from '@/assets/svg/barIcon';
 import { CrossIcon } from '@/assets/svg/crossIcon';
 import Button from '@/components/core/Button';
@@ -23,6 +24,8 @@ import {
 } from './index.styles';
 
 const AadhaarNumber = () => {
+  const { t } = useTranslation('aadhaar_number');
+
   const handleBack = () => {
     router.push('/aadhaar_offline_kyc');
   };
@@ -41,15 +44,19 @@ const AadhaarNumber = () => {
           <DivCrossIcon onClick={handleBack}>
             <CrossIcon />
           </DivCrossIcon>
-          <StyledTitle>Aadhaar number</StyledTitle>
-          <StyledDescription>Enter your 12 digit Aadhaar number to begin</StyledDescription>
-          <FieldInput placeholder={'Aadhaar Number*'} name={'aadhar'} className="my-2 m-auto rounded border p-2" />
+          <StyledTitle>{t('aadhaar_number')}</StyledTitle>
+          <StyledDescription>{t('enter_your_12_digit_aadhaar_number_to_begin')}</StyledDescription>
           <FieldInput
-            placeholder={'Enter Security Code*'}
+            placeholder={`${t('aadhaar_number')}*`}
+            name="aadhar"
+            className="my-2 m-auto rounded border p-2"
+          />
+          <FieldInput
+            placeholder={`${t('enter_security_code')}*`}
             name={'security'}
             className="my-2 m-auto rounded border p-2"
           />
-          <StyledSpan>Type the character you see in the picture</StyledSpan>
+          <StyledSpan>{t('type_the_character_you_see_in_the_picture')}</StyledSpan>
           <CapchaContainer>
             <CapchaTextDiv>
               <CapchaTextSpan>HnsoeG</CapchaTextSpan>
@@ -59,7 +66,7 @@ const AadhaarNumber = () => {
         </div>
         <BottomButtonDiv>
           <Button onClick={handleSendOtp} className="my-5 m-auto">
-            Send OTP
+            {t('send_otp')}
           </Button>
         </BottomButtonDiv>
       </DivInner>
@@ -69,7 +76,7 @@ const AadhaarNumber = () => {
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['otpVerification'])),
+    ...(await serverSideTranslations(locale, ['aadhaar_number'])),
   },
 });
 

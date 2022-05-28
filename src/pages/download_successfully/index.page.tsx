@@ -1,12 +1,9 @@
 import router from 'next/router';
-
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
 import Button from '@/components/core/Button';
 import Heading from '@/components/core/Header/Header';
 import OTPInput from '@/components/core/Otp';
-
 import { CheckMarkSvg } from '@/assets/svg/check_mark';
 import {
   ButtonWrapper,
@@ -17,27 +14,28 @@ import {
   DivMain,
   OtpContainerWrapper,
 } from './index.style';
+/**
+ *
+ * @returns DownloadSuccessfully page
+ */
 
 const DownloadSuccessfully = () => {
-  const { t } = useTranslation('otpVerification');
-
+  const { t } = useTranslation('download_successfully');
   const handleBack = () => {
     router.push('/otpVerification');
   };
-
   const handleContinue = () => {
     router.push('/keeps_things_handy');
   };
-
   return (
     <DivMain>
-      <Heading text={t('Download Successfully')} onClick={handleBack} />
+      <Heading text={t('download_successfully')} onClick={handleBack} />
       <DivContentBody>
         <DivContent>
           <CheckMarkSvg />
-          <DivContentTitle>{t('File Download Successfully')}</DivContentTitle>
+          <DivContentTitle>{t('file_download_successfully')}</DivContentTitle>
           <DivContentDescription>
-            {t('Kindly re-confirm your share code to grant access to your XML file.')}
+            {t('kindly_reconfirm_your_share_code_to_grant_access_to_your_xml_file.')}
           </DivContentDescription>
         </DivContent>
         <OtpContainerWrapper>
@@ -54,7 +52,7 @@ const DownloadSuccessfully = () => {
       </DivContentBody>
       <ButtonWrapper>
         <Button onClick={handleContinue} className="m-auto">
-          Proceed
+          {t('proceed')}
         </Button>
       </ButtonWrapper>
     </DivMain>
@@ -63,7 +61,7 @@ const DownloadSuccessfully = () => {
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['otpVerification'])),
+    ...(await serverSideTranslations(locale, ['download_successfully'])),
   },
 });
 

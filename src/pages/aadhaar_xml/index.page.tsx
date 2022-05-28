@@ -2,44 +2,50 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Button from '@/components/core/Button';
 import Header from '@/components/core/Header';
 
 import { AadhaarXmlSvg } from '@/assets/svg/aadhaar_xml';
-// import RadioInputStyled from '@/components/core/RadioInput';
-import MyCommenceCenteredModal from '@/components/core/CommenceVideomodel/index.page';
-import { DivMain, DivSvg, FooterButtonStyle, DivForm, FormLabel, MainStyle, YesButtonStyle } from './index.styles';
+import MyCommenceCenteredModal from '@/components/CommenceVideomodel';
+import { DivMain, DivSvg, FooterButtonStyle, DivForm, FormLabel, MainStyle, StyledParagraph } from './index.styles';
 /**
  *
  * @returns AadhaarXml page
  */
 const AadhaarXml = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('aadhaar_xml');
   const router = useRouter();
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState<boolean>(false);
+  const [ischecked, setIsChecked] = useState<boolean>(false);
 
   const onClickHeaderIcon = () => {
-    router.push('/');
+    router.push('/aadhaar_xml');
   };
-  const [ischecked, setIsChecked] = useState(false);
 
   const handleContinue = () => {
     setModalShow(true);
   };
-  const onClicOk = () => {
+
+  const onAgree = () => {
     router.push('/aadhaar_offline_kyc');
   };
+
+  const onDisAgree = () => {
+    setModalShow(false);
+  };
+
   return (
     <DivMain>
       <div>
-        <Header text="Aadhaar XML" onClick={onClickHeaderIcon} />
+        <Header text={t('aadhaar_xml')} onClick={onClickHeaderIcon} />
         <DivSvg>
           <AadhaarXmlSvg />
         </DivSvg>
         <DivForm>
-          <FormLabel>Do you have an Aadhaar XML file?</FormLabel>
+          <FormLabel>{t('do_you_have_an_aadhaar_xml_file?')}</FormLabel>
         </DivForm>
-        <MainStyle isChecked={ischecked}>
+        <MainStyle>
           <form action="#" className="customRadio">
             <div className="row">
               <input
@@ -50,47 +56,33 @@ const AadhaarXml = () => {
                 onClick={() => (ischecked ? setIsChecked(true) : setIsChecked(false))}
               />
               <label htmlFor="dreamweaver">
-                <YesButtonStyle>Yes</YesButtonStyle>
+                <StyledParagraph>{t('yes')}</StyledParagraph>
               </label>
             </div>
             <div className="row">
               <input type="radio" name="textEditor" id="sublime" />
               <label htmlFor="sublime">
-                <YesButtonStyle>No</YesButtonStyle>
+                <StyledParagraph>{t('no')}</StyledParagraph>
               </label>
             </div>
           </form>
           <div></div>
         </MainStyle>
       </div>
-
       <FooterButtonStyle>
-        <div className="button-container">
-          <Button isBottom onClick={handleContinue} className="m-auto">
-            Continue
-          </Button>
-        </div>
+        <Button isBottom onClick={handleContinue} className="m-auto">
+          {t('continue')}
+        </Button>
       </FooterButtonStyle>
-      <MyCommenceCenteredModal
-        show={modalShow}
-        onOk={onClicOk}
-        onHide={() => setModalShow(false)}
-        userConsent={t('User Consent')}
-        clickingAgree={t('By clicking on ‘Agree’, you hereby:')}
-        listParaOne={t(
-          'Acknowledge the request made by Syntizen technologies private limited to provide personal details.'
-        )}
-        listParaTwo={t(
-          'Provide my unconditional concent to access, copy and store all information there in by sharing the inofrmation.'
-        )}
-        listParaThree={t(
-          'Also undertake I/We are authorised to do so on behalf of the requestee organisation and tkae sole and complete responsibilitity for the same.'
-        )}
-        disagree={t('Disagree')}
-        agree={t('Agree')}
-      />
+      <MyCommenceCenteredModal show={modalShow} onAgree={onAgree} onDisagree={onDisAgree} onHide={onDisAgree} />
     </DivMain>
   );
 };
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['aadhaar_xml'])),
+  },
+});
 
 export default AadhaarXml;

@@ -49,4 +49,6 @@ export const COLORS = {
   GREY_94: '#f0f0f0',
   ALTO_GREY: '#d2d2d2',
   GREY_50: '#e5e5e5',
+  GREY_600: '#6e6e6f',
+  BLUE_600: '#e2ecf3',
 };

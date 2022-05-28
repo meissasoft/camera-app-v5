@@ -7,42 +7,34 @@ export const DivMain = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  .button-container {
-    width: 100%;
-    margin-top: 48px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 `;
+
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   cursor: pointer;
 `;
-export const StyledLine = styled.hr`
-  opacity: 0.6;
-  margin: 15px 5px 15px 0px;
-  background-color: rgba(0, 0, 0, 0.1);
-`;
-export const StyledColor = styled.div`
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-`;
+
 export const DivSvg = styled.div`
   text-align: center;
 `;
+
 export const DivForm = styled.div`
   margin-top: 50px;
   text-align: left;
 `;
+
 export const FooterButtonStyle = styled.div`
   margin-top: 2%;
+  width: 100%;
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
-export const YesButtonStyle = styled.p`
+
+export const StyledParagraph = styled.p`
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -60,9 +52,7 @@ export const FormLabel = styled.h5`
   color: ${COLORS.BLACK_HEAVY};
 `;
 
-export const MainStyle = styled.div<{
-  isChecked?: boolean;
-}>`
+export const MainStyle = styled.div`
   .customRadio input[type='radio'] {
     position: absolute;
     left: -9999px;
@@ -78,11 +68,7 @@ export const MainStyle = styled.div<{
   .customRadio input[type='radio'] + label:before {
     content: '';
     background: ${COLORS.WHITE_200};
-    border: ${({ isChecked }) =>
-      isChecked
-        ? `2px solid ${COLORS.FAUX_CHINESE_BLUE};
-    `
-        : `2px solid ${COLORS.FAUX_CHINESE_BLUE};`};
+    border: 2px solid ${COLORS.FAUX_CHINESE_BLUE}
     margin-top: 10px;
     background-color: ${COLORS.WHITE_200};
     cursor: pointer;
