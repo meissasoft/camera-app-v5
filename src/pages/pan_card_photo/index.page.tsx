@@ -73,9 +73,9 @@ const PanCardPhoto = () => {
   return (
     <DivMain>
       <PanCameraStyled>
-        <PanDivCameraBox ref={videoRef}></PanDivCameraBox>
+        <PanDivCameraBox ref={videoRef} playsInline muted></PanDivCameraBox>
         <Canvas ref={photoRef}></Canvas>
-        <DivVideoBox ref={videoRef1} />
+        <DivVideoBox ref={videoRef1} playsInline muted />
       </PanCameraStyled>
       <PanCameraTextStyledWrapper>
         <PanCardPhotos

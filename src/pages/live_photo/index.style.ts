@@ -2,8 +2,14 @@ import styled from '@emotion/styled';
 import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
-  background-color: black;
-  height: 100vh;
+  background-color: ${COLORS.BLACK_100};
+  height: calc(100vh - 40px);
+  @media (max-height: 720px) {
+    height: calc(100vh - 58px);
+  }
+  @media (max-height: 670px) {
+    height: calc(100vh - 40px);
+  }
   padding: 20px;
   position: relative;
 `;

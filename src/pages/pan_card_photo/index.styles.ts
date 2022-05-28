@@ -4,7 +4,13 @@ import { COLORS } from '@/constants/colors';
 export const DivMain = styled.div`
   background-color: ${COLORS.LIGHT_RED};
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 40px);
+  @media (max-height: 720px) {
+    height: calc(100vh - 60px);
+  }
+  @media (max-height: 670px) {
+    height: calc(100vh - 40px);
+  }
   padding: 20px;
   position: relative;
 `;
@@ -15,8 +21,8 @@ export const PanCameraStyled = styled.div`
 
 export const PanDivCameraBox = styled.video`
   position: relative;
-  margin: 200px auto auto auto;
-  width: 320px;
+  margin: 200px 0px auto auto;
+  width: 100%;
   height: 220px;
   border-radius: 8px;
   border: 1.5px solid ${COLORS.SHAMROCK_100};
@@ -27,6 +33,7 @@ export const PanDivCameraBox = styled.video`
 
 export const DivVideoBox = styled.video`
   position: absolute;
+  right: 20px;
   box-sizing: border-box;
   display: flex;
   align-items: center;

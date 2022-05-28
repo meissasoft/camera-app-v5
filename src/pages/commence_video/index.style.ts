@@ -3,7 +3,13 @@ import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
   margin: 20px;
-  min-height: calc(100vh - 40px);
+  height: calc(100vh - 40px);
+  @media (max-height: 720px) {
+    height: calc(100vh - 110px);
+  }
+  @media (max-height: 670px) {
+    height: calc(100vh - 40px);
+  }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
