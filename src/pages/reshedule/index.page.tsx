@@ -25,12 +25,15 @@ import {
   DefaultOptionDiv,
   OptionsListDiv,
   SingleOptionDiv,
+  LightText,
+  BoldText,
 } from './index.style';
 
 const Reshedule = () => {
+  const { t } = useTranslation('reschedule');
   const [value, onChange] = useState(new Date());
   const [dropDownOpen, setDropDownOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('Select a avaliable time Slot');
+  const [selectedOption, setSelectedOption] = useState(`${t('select_a_available_time_slot')}`);
   const [selectOptionIcon, setSelectOptionIcon] = useState<any>(null);
   const AvaliableSlots = [
     {
@@ -55,8 +58,6 @@ const Reshedule = () => {
     },
   ];
 
-  const { t } = useTranslation('otpVerification');
-
   const handleBack = () => {
     router.push('/token_number');
   };
@@ -68,12 +69,12 @@ const Reshedule = () => {
   return (
     <DivMain>
       <div>
-        <Heading text={t('Reschedule')} onClick={handleBack} />
+        <Heading text={t('reschedule')} onClick={handleBack} />
 
         <div className="mt-5 text-center">
           <DescriptionDiv>
-            {t('Please select a')} <span className="fw-bold">{t(' date & time ')}</span>
-            {t('to reschedule a video call session with our agent')}
+            <LightText>{t('please_select_a')}</LightText> <BoldText>{t('date_and_time')}</BoldText>
+            <LightText>{t('to_reschedule_a_video_call_session_with_our_agent')}</LightText>
           </DescriptionDiv>
         </div>
 
@@ -83,6 +84,7 @@ const Reshedule = () => {
             value={value}
             prevLabel={<CalendarPrevLabel />}
             nextLabel={<CalendarNextLabel />}
+            minDate={new Date()}
             className="react-calendar"
           />
         </CalendarDiv>
@@ -104,7 +106,7 @@ const Reshedule = () => {
                       key={index}
                       onClick={() => {
                         if (selectOptionIcon === item.id) {
-                          setSelectedOption('Select a avaliable time Slot');
+                          setSelectedOption(`${t('select_a_available_time_slot')}`);
                           setSelectOptionIcon(null);
                         } else {
                           setSelectedOption(`${item.startTime} to ${item.endTime}`);
@@ -131,7 +133,7 @@ const Reshedule = () => {
         className={`my-5 m-auto ${selectOptionIcon === null ? 'confirmDisable' : ''}`}
         disabled={selectOptionIcon === null ? true : false}
       >
-        Confirm
+        {t('confirm')}
       </Button>
     </DivMain>
   );
@@ -139,7 +141,7 @@ const Reshedule = () => {
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['otpVerification'])),
+    ...(await serverSideTranslations(locale, ['reschedule'])),
   },
 });
 
