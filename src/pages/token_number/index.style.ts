@@ -6,7 +6,7 @@ export const DivMain = styled.div`
   padding: 20px;
   height: calc(100vh - 40px);
   @media (max-height: 720px) {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 60px);
   }
   @media (max-height: 670px) {
     height: calc(100vh - 40px);

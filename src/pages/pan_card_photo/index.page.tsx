@@ -13,6 +13,7 @@ import {
   PanCameraStyled,
   PanDivCameraBox,
   PanCameraTextStyledWrapper,
+  Background,
 } from './index.styles';
 
 /**
@@ -71,21 +72,23 @@ const PanCardPhoto = () => {
   }, [mediaStream]);
 
   return (
-    <DivMain>
-      <PanCameraStyled>
-        <PanDivCameraBox ref={videoRef} playsInline muted></PanDivCameraBox>
-        <Canvas ref={photoRef}></Canvas>
-        <DivVideoBox ref={videoRef1} playsInline muted />
-      </PanCameraStyled>
-      <PanCameraTextStyledWrapper>
-        <PanCardPhotos
-          takePhoto={takePhoto}
-          text1={t('position_the_pan_card_exactly_in_the_frame')}
-          text2={t('pan_card_captured_successfully')}
-          text3={t('hold_your_signature')}
-        />
-      </PanCameraTextStyledWrapper>
-    </DivMain>
+    <Background>
+      <DivMain>
+        <PanCameraStyled>
+          <PanDivCameraBox ref={videoRef} playsInline muted></PanDivCameraBox>
+          <Canvas ref={photoRef}></Canvas>
+          <DivVideoBox ref={videoRef1} playsInline muted />
+        </PanCameraStyled>
+        <PanCameraTextStyledWrapper>
+          <PanCardPhotos
+            takePhoto={takePhoto}
+            text1={t('position_the_pan_card_exactly_in_the_frame')}
+            text2={t('pan_card_captured_successfully')}
+            text3={t('hold_your_signature')}
+          />
+        </PanCameraTextStyledWrapper>
+      </DivMain>
+    </Background>
   );
 };
 export const getStaticProps = async ({ locale }: { locale: string }) => ({

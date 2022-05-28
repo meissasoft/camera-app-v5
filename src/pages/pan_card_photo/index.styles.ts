@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
 import { COLORS } from '@/constants/colors';
 
+export const Background = styled.div`
+  background-image: url('https://i.ibb.co/LQ0W6gc/pan-background-photo.png');
+  height: 100vh;
+`;
+
 export const DivMain = styled.div`
-  background-color: ${COLORS.LIGHT_RED};
   width: 100%;
   height: calc(100vh - 40px);
   @media (max-height: 720px) {

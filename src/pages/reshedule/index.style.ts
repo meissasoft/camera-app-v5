@@ -36,14 +36,6 @@ export const DivMain = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  .otpInput1:focus {
-    border: none;
-    border-bottom: 2px solid ${COLORS.BLACK_100};
-    background: linear-gradient(white, white) padding-box,
-      linear-gradient(to left, ${COLORS.SKY_100}, ${COLORS.FAUX_CHINESE_BLUE}) border-box;
-    text-align: center;
-    outline: none;
-  }
 `;
 export const CalendarDiv = styled.div`
   border: 1px;
