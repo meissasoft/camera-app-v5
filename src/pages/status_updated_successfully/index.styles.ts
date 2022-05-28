@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
   margin: 20px;
@@ -29,7 +30,7 @@ export const VerificationSuccessfulSmallTextStyled = styled.p`
   font-size: 18px;
   margin-top: 12px;
   text-align: center;
-  color: #121212;
+  color: ${COLORS.GREY_12};
   opacity: 0.6;
   margin-bottom: 0px !important;
 `;

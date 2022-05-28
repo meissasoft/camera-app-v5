@@ -60,7 +60,7 @@ export const CapchaContainer = styled.div`
 `;
 
 export const CapchaTextDiv = styled.div`
-  border: 1px solid #c4c4c4;
+  border: 1px solid ${COLORS.LIGHT_GREY};
   border-radius: 5px;
   padding: 10px;
   letter-spacing: 2px;
@@ -73,7 +73,7 @@ export const CapchaTextSpan = styled.span`
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
-  color: #000000;
+  color: ${COLORS.BLACK_HEAVY};
 `;
 
 export const BottomButtonDiv = styled.div``;

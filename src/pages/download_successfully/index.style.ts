@@ -13,7 +13,7 @@ export const DivMain = styled.div`
     width: 40px;
     border: none;
     outline: none;
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -22,17 +22,17 @@ export const DivMain = styled.div`
     margin-right: 10px;
     text-align: center;
     outline: none;
-    caret-color: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    caret-color: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     padding: 0px 10px;
   }
   .otpInput:focus,
   .otpInput:active {
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    border-bottom: 2.5px solid #38568f;
+    border-bottom: 2.5px solid ${COLORS.FAUX_CHINESE_BLUE};
   }
 `;
 
@@ -40,7 +40,6 @@ export const DivContentBody = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 70vh;
 `;
 
 export const DivContent = styled.div`
@@ -49,11 +48,11 @@ export const DivContent = styled.div`
 `;
 
 export const DivContentTitle = styled.div`
-  margin-top: 20px;
-  font-weight: 600;
-  font-size: 20px;
-  text-align: center,
-  color: ${COLORS.BLACK_100},
+    margin-top: 20px; 
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center,
+    color: ${COLORS.BLACK_100},
 `;
 
 export const DivContentDescription = styled.div`

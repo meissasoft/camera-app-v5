@@ -5,50 +5,31 @@ import { COLORS } from '@/constants/colors';
 export const DivMain = styled.div`
   padding: 20px;
   height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  .heading {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+
   .inner {
     padding: 0px 20px;
     display: flex;
     flex-direction: column;
-    align-content  space-between;
+    align-content: space-between;
     justify-content: flex-start;
     align-items: center;
-    margin-top:10px;
+    margin-top: 10px;
     background: ${COLORS.WHITE};
     box-shadow: 0px -11px 13px rgba(0, 0, 0, 0.06);
     border-radius: 20px 20px 0px 0px;
     position: relative;
   }
 
-  .title{
-    margin-top: 20px; 
-    font-weight: 600;
-    font-size: 20px;
-    text-align: center,
-    color: ${COLORS.BLACK_100},
-  }
-
-  .description {
-    margin-top: 10px; 
-    font-size: 18px;
+  .barIcon {
+    cursor: pointer;
     text-align: center;
-    color: ${COLORS.GREY_12};
-    opacity: 0.6;
   }
 
-  .barIcon{
-    cursor:pointer;
-    text-align:center;
-  } 
-
-  .crossIcon{
-    position:absolute;
+  .crossIcon {
+    position: absolute;
     right: 12px;
     top: 24px;
     cursor: pointer;
@@ -60,7 +41,6 @@ export const DivMain = styled.div`
     justify-content: space-between;
   }
 
-
   .otpInput {
     margin: 0px;
     font-size: 30px;
@@ -68,7 +48,7 @@ export const DivMain = styled.div`
     width: 40px;
     border: none;
     outline: none;
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -77,19 +57,17 @@ export const DivMain = styled.div`
     margin-right: 10px;
     text-align: center;
     outline: none;
-    caret-color: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    caret-color: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     padding: 0px 10px;
   }
   .otpInput:focus,
-  .otpInput:active
-  {
- 
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+  .otpInput:active {
+    background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    border-bottom: 2.5px solid #38568f;
+    border-bottom: 2.5px solid ${COLORS.FAUX_CHINESE_BLUE};
   }
 
   .text {
@@ -102,7 +80,7 @@ export const DivMain = styled.div`
 
   .otpInput1:focus {
     border: none;
-    border-bottom: 2px solid #0000;
+    border-bottom: 2px solid ${COLORS.BLACK_100};
     background: linear-gradient(white, white) padding-box,
       linear-gradient(to left, ${COLORS.SKY_100}, ${COLORS.FAUX_CHINESE_BLUE}) border-box;
     text-align: center;
@@ -114,8 +92,8 @@ export const DivMain = styled.div`
 
   .btn-primary {
     outline: none;
-    background-color: #e2ecf3;
-    border-color: #e2ecf3;
+    background-color: ${COLORS.PARROT_100};
+    border-color: ${COLORS.PARROT_100};
     font-weight: 600;
     font-size: 12px;
   }
@@ -131,32 +109,51 @@ export const DivMain = styled.div`
     color: ${COLORS.GREY_12};
     opacity: 0.6;
   }
-  .tockenNumber{
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 49px;
+`;
 
-text-align: center;
+export const TokenHeading = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
+`;
 
-background: linear-gradient(180deg, #38568F 0%, #38A1F7 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-text-fill-color: transparent;
-  }
-  .estimatedTime{
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 49px;
+export const TokenNumberDiv = styled.p`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 49px;
+  text-align: center;
+  background: linear-gradient(180deg, ${COLORS.FAUX_CHINESE_BLUE} 0%, ${COLORS.SKY_100} 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
 
-text-align: center;
+export const TokenDescription = styled.div`
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+  color: ${COLORS.GREY_12};
+  opacity: 0.6;
+`;
 
-background: linear-gradient(180deg, #38568F 0%, #38A1F7 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-text-fill-color: transparent;
-  }
+export const TitleDiv = styled.div`
+    margin-top: 20px; 
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center,
+    color: ${COLORS.BLACK_100},
+`;
+
+export const EstimatedTimeDiv = styled.p`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 49px;
+  text-align: center;
+  background: linear-gradient(180deg, ${COLORS.FAUX_CHINESE_BLUE} 0%, ${COLORS.SKY_100} 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 `;

@@ -24,7 +24,7 @@ export const DivCameraBox = styled.video`
   object-fit: cover;
   background: ${COLORS.BLACK_200}
 
-  border-color: #ffffff;
+  border-color: ${COLORS.WHITE_200};
   @media (max-width: 500px) {
     width: 327px;
     height: 340px;
@@ -55,7 +55,7 @@ export const DivVideoBox = styled.video`
   height: 140px;
   margin-left: 53%;
   margin-top: -450px;
-  border: 1.5px solid #FFFFFF;
+  border: 1.5px solid ${COLORS.WHITE_200};
   border-radius: 12px;
   object-fit: cover;
 

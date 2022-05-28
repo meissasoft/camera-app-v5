@@ -4,6 +4,7 @@ import { COLORS } from '@/constants/colors';
 export const DivMain = styled.div`
   margin-top: 50px;
 `;
+
 export const DivMainContainer = styled.div`
   padding: 0px 20px;
   display: flex;
@@ -24,7 +25,7 @@ export const DivMainContainer = styled.div`
     width: 40px;
     border: none;
     outline: none;
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -33,25 +34,34 @@ export const DivMainContainer = styled.div`
     margin-right: 10px;
     text-align: center;
     outline: none;
-    caret-color: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    caret-color: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     padding: 0px 10px;
   }
   .otpInput:focus,
   .otpInput:active {
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    border-bottom: 2.5px solid #38568f;
+    border-bottom: 2.5px solid ${COLORS.FAUX_CHINESE_BLUE};
+  }
+
+  .otpInput1:focus {
+    border: none;
+    border-bottom: 2px solid ${COLORS.BLACK_100};
+    background: linear-gradient(white, white) padding-box,
+      linear-gradient(to left, ${COLORS.SKY_100}, ${COLORS.FAUX_CHINESE_BLUE}) border-box;
+    text-align: center;
+    outline: none;
   }
   .btn {
     padding: 0px 8px;
   }
   .btn-primary {
     outline: none;
-    background-color: ${COLORS.BLUE_600};
-    border-color: ${COLORS.BLUE_600};
+    background-color: ${COLORS.PARROT_100};
+    border-color: ${COLORS.PARROT_100};
     font-weight: 600;
     font-size: 12px;
   }
@@ -59,6 +69,15 @@ export const DivMainContainer = styled.div`
     outline: none;
   }
 `;
+
+export const CodeText = styled.span`
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  color: ${COLORS.GREY_12};
+  opacity: 0.6;
+`;
+
 export const BarIconDiv = styled.div`
   cursor: pointer;
   text-align: center;
@@ -91,13 +110,6 @@ export const OtpContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-`;
-export const CodeText = styled.span`
-  font-weight: 400;
-  font-size: 14px;
-  text-align: center;
-  color: ${COLORS.GREY_12};
-  opacity: 0.6;
 `;
 
 export const ResendText = styled.span`

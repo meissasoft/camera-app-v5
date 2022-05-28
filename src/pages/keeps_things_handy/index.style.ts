@@ -88,7 +88,7 @@ export const IdentificationSmallTextStyled2 = styled.p`
   font-weight: 600;
   font-size: 18px;
   text-align: center;
-  color: #121212;
+  color: ${COLORS.GREY_12};
   opacity: 0.6;
 `;
 export const StyledLine = styled.hr`
