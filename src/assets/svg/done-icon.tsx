@@ -5,7 +5,7 @@ export const DoneIcon = () => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ marginTop: 4 }}
+    style={{ marginTop: '1px' }}
   >
     <rect width="24" height="24" rx="12" fill="url(#paint0_linear_55_1964)" />
     <path

@@ -30,7 +30,7 @@ const StatusUpdatedSuccessfully = () => {
   const [displayLottie, setDisplayLottie] = useState<boolean>(false);
   const [stop, setStop] = useState<boolean>(false);
 
-  const { t } = useTranslation('verified');
+  const { t } = useTranslation('kyc_update_successfully');
 
   const defaultOptions = {
     loop: true,
@@ -58,18 +58,18 @@ const StatusUpdatedSuccessfully = () => {
     <DivMain>
       <div>
         {displayLottie && <Lottie options={defaultOptions} isStopped={stop} style={{ position: 'fixed' }} />}
-        <Header text={t('Status')} onClick={onClickHeaderIcon} />
+        <Header text={t('status')} onClick={onClickHeaderIcon} />
         <VerificationCardStyled>
           <VerifiiedIcon />
         </VerificationCardStyled>
-        <VerificationSuccessfulTextStyled>{t('KYC updated successfully')}</VerificationSuccessfulTextStyled>
+        <VerificationSuccessfulTextStyled>{t('kyc_updated_successfully')}</VerificationSuccessfulTextStyled>
         <VerificationSuccessfulSmallTextStyled>
-          {t('Your verification is completed and all your data is stored securely.')}
+          {t('your_verification_is_completed_and_all_your_data_is_stored_securely.')}
         </VerificationSuccessfulSmallTextStyled>
       </div>
       <DivBottom>
         <Button className="m-auto" onClick={lottieHandler}>
-          {t('Done')}
+          {t('done')}
         </Button>
       </DivBottom>
     </DivMain>
@@ -78,7 +78,7 @@ const StatusUpdatedSuccessfully = () => {
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['status_updated_successfully'])),
+    ...(await serverSideTranslations(locale, ['kyc_update_successfully'])),
   },
 });
 
