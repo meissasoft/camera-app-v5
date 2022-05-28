@@ -40,10 +40,16 @@ const LiveCameraPhoto = () => {
 
   useEffect(() => {
     if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
+      videoRef.current.setAttribute('autoplay', '');
+      videoRef.current.setAttribute('muted', '');
+      videoRef.current.setAttribute('playsinline', '');
       videoRef.current.srcObject = mediaStream;
       videoRef.current.play();
     }
     if (mediaStream && videoRef1.current && !videoRef1.current.srcObject) {
+      videoRef1.current.setAttribute('autoplay', '');
+      videoRef1.current.setAttribute('muted', '');
+      videoRef1.current.setAttribute('playsinline', '');
       videoRef1.current.srcObject = mediaStream;
       videoRef1.current.play();
     }
@@ -51,8 +57,8 @@ const LiveCameraPhoto = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      router.push('/pan_card_photo');
-    }, 5000);
+      router.push('/status_updated_successfully');
+    }, 10000);
   }, [mediaStream]);
 
   // for clear image
