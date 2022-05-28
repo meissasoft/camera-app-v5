@@ -14,7 +14,7 @@ export const DivInner = styled.div`
   padding: 20px 20px 0px 20px;
   box-shadow: 0px -11px 13px rgba(0, 0, 0, 0.06);
   border-radius: 20px 20px 0px 0px;
-  height: 100vh;
+  min-height: calc(100vh - 60px);
   justify-content: space-between;
 `;
 
@@ -60,7 +60,7 @@ export const CapchaContainer = styled.div`
 `;
 
 export const CapchaTextDiv = styled.div`
-  border: 1px solid #c4c4c4;
+  border: 1px solid ${COLORS.LIGHT_GREY};
   border-radius: 5px;
   padding: 10px;
   letter-spacing: 2px;
@@ -73,7 +73,7 @@ export const CapchaTextSpan = styled.span`
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
-  color: #000000;
+  color: ${COLORS.BLACK_HEAVY};
 `;
 
 export const BottomButtonDiv = styled.div``;

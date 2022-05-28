@@ -1,59 +1,11 @@
 import styled from '@emotion/styled';
-
 import { COLORS } from '@/constants/colors';
-
 export const DivMain = styled.div`
   padding: 20px;
-  min-height: calc( 100vh - 20px );
-  display:flex;
+  min-height: calc(100vh - 20px);
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  .heading {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  .title{
-    margin-top: 20px; 
-    font-weight: 600;
-    font-size: 20px;
-    text-align: center,
-    color: ${COLORS.BLACK_100},
-  }
-
-  .description {
-    margin-top: 10px; 
-    font-size: 18px;
-    text-align: center;
-    color: ${COLORS.GREY_12};
-    opacity: 0.6;
-  }
-
-  .barIcon{
-    cursor:pointer;
-    text-align:center;
-  } 
-
-  .crossIcon{
-    position:absolute;
-    right: 12px;
-    top: 24px;
-    cursor: pointer;
-  }
-
-  .otpContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-
   .otpInput {
     margin: 0px;
     font-size: 30px;
@@ -61,7 +13,7 @@ export const DivMain = styled.div`
     width: 40px;
     border: none;
     outline: none;
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -70,63 +22,54 @@ export const DivMain = styled.div`
     margin-right: 10px;
     text-align: center;
     outline: none;
-    caret-color: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+    caret-color: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     padding: 0px 10px;
   }
   .otpInput:focus,
-  .otpInput:active
-  {
- 
-    background: linear-gradient(90.81deg, #38568f 10%, #38a1f7 75.3%);
+  .otpInput:active {
+    background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    border-bottom: 2.5px solid #38568f;
+    border-bottom: 2.5px solid ${COLORS.FAUX_CHINESE_BLUE};
   }
+`;
 
-  .text {
-    background: linear-gradient(90deg, ${COLORS.FAUX_CHINESE_BLUE} 0%, ${COLORS.SKY_100} 85%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-  }
+export const DivContentBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
 
-  .otpInput1:focus {
-    border: none;
-    border-bottom: 2px solid #0000;
-    background: linear-gradient(white, white) padding-box,
-      linear-gradient(to left, ${COLORS.SKY_100}, ${COLORS.FAUX_CHINESE_BLUE}) border-box;
-    text-align: center;
-    outline: none;
-  }
+export const DivContent = styled.div`
+  margin-top: 5px;
+  text-align: center;
+`;
 
-  .btn-container: {
-    width: 100%;
-    margin-top: 80px;
-  }
-  .btn {
-    padding: 0px 8px;
-  }
-
-  .btn-primary {
-    outline: none;
-    background-color: #e2ecf3;
-    border-color: #e2ecf3;
+export const DivContentTitle = styled.div`
+    margin-top: 20px; 
     font-weight: 600;
-    font-size: 12px;
-  }
+    font-size: 20px;
+    text-align: center,
+    color: ${COLORS.BLACK_100},
+`;
 
-  .btn-primary:focus {
-    outline: none;
-  }
+export const DivContentDescription = styled.div`
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+  color: ${COLORS.GREY_12};
+  opacity: 0.6;
+`;
 
-  .code-text {
-    font-weight: 400;
-    font-size: 14px;
-    text-align: center;
-    color: ${COLORS.GREY_12};
-    opacity: 0.6;
-  }
+export const OtpContainerWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  margin-top: 80px;
 `;

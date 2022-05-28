@@ -2,37 +2,17 @@ import styled from '@emotion/styled';
 
 import { COLORS } from '@/constants/colors';
 
-export const DivStepLayout = styled.div<{ disabled: boolean }>`
-  ${({ disabled }) =>
-    disabled
-      ? `pointer-events: none;
-    opacity: 0.3;
-    cursor: not-allowed;`
-      : ``}
+export const DivStepLayout = styled.div`
   box-sizing: border-box;
-  padding: 15px 25px;
+  padding: 10px;
   margin: 20px 0px;
   width: 100%;
-  min-height: 98px;
-  left: 24px;
-  top: 368px;
-  ${({ disabled }) =>
-    disabled
-      ? `
-      border: 2px solid grey;
-      border-radius: 5px;
-`
-      : `
-      border: 2px solid #0000;
-      border-radius: 5px;
-      background: linear-gradient(white, white) padding-box,
-        linear-gradient(to left, ${COLORS.SKY_100}, ${COLORS.FAUX_CHINESE_BLUE}) border-box;
-      `}
-
-  .d-flex {
-    display: flex;
-    justify-content: space-between;
-  }
+  display: flex;
+  border: 1px solid #0000;
+  flex-direction: row;
+  border-radius: 5px;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to left, ${COLORS.SKY_100}, ${COLORS.FAUX_CHINESE_BLUE}) border-box;
 `;
 
 export const DivHeading = styled.div`
@@ -81,8 +61,7 @@ export const DivStep = styled.div`
 `;
 
 export const DivIcon = styled.div`
-  width: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
 `;
