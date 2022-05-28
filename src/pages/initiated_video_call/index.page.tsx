@@ -15,7 +15,7 @@ import { DivCameraBox, DivFrontCam, DivMain, DivFrontCamContainer, DivTextStyled
 const InitiatedVideoCall = () => {
   const front = {
     audio: true,
-    video: { facingMode: 'environment' }, // change to user for front camera
+    video: { facingMode: 'user' }, // change to user for front camera
   };
 
   const videoRefFront: any = useRef(null);
@@ -28,18 +28,24 @@ const InitiatedVideoCall = () => {
 
   useEffect(() => {
     if (mediaStreamFront && videoRefFront.current && !videoRefFront.current.srcObject) {
+      videoRefFront.current.setAttribute('autoplay', '');
+      videoRefFront.current.setAttribute('muted', '');
+      videoRefFront.current.setAttribute('playsinline', '');
       videoRefFront.current.srcObject = mediaStreamFront;
-      videoRefFront?.current?.play();
-      mediaRecorderFront.current = new MediaRecorder(mediaStreamFront, { mimeType: 'video/webm' });
+      videoRefFront.current.play();
+      mediaRecorderFront.current = new MediaRecorder(mediaStreamFront, { mimeType: 'video/mp4' });
       mediaRecorderFront.current.start(1000);
       mediaRecorderFront.current.addEventListener('dataavailable', function (e: any) {
         blobsRecordedFront.push(e.data);
       });
     }
     if (mediaStreamFront && videoRefBack.current && !videoRefBack.current.srcObject) {
+      videoRefBack.current.setAttribute('autoplay', '');
+      videoRefBack.current.setAttribute('muted', '');
+      videoRefBack.current.setAttribute('playsinline', '');
       videoRefBack.current.srcObject = mediaStreamFront;
       videoRefBack.current.play();
-      mediaRecorderBack.current = new MediaRecorder(mediaStreamFront, { mimeType: 'video/webm' });
+      mediaRecorderBack.current = new MediaRecorder(mediaStreamFront, { mimeType: 'video/mp4' });
       mediaRecorderBack.current?.start(1000);
       mediaRecorderBack.current.addEventListener('dataavailable', function (e: any) {
         blobsRecordedBack.push(e.data);
@@ -56,9 +62,9 @@ const InitiatedVideoCall = () => {
   return (
     <DivMain>
       <DivFrontCamContainer>
-        <DivFrontCam ref={videoRefFront} />
+        <DivFrontCam ref={videoRefFront} muted playsInline />
       </DivFrontCamContainer>
-      <DivCameraBox ref={videoRefBack} />
+      <DivCameraBox ref={videoRefBack} muted playsInline />
       <DivTextStyled>
         <BottomText />
       </DivTextStyled>
