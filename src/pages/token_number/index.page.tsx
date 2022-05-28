@@ -16,8 +16,7 @@ const TokenNumber = () => {
   };
 
   const handleContinue = () => {
-    // router.push('/reshedule');
-    router.push('/initiating_video');
+    router.push('/reshedule');
   };
 
   return (
