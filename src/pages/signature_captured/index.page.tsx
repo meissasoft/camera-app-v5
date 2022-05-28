@@ -2,6 +2,8 @@ import router from 'next/router';
 
 import { useEffect, useRef } from 'react';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 import { useUserMedia } from '@/hooks/useUserMedia';
 
 import { DoneIcon } from '@/assets/svg/done-icon';
@@ -17,7 +19,7 @@ const SignatureCaptured = () => {
     audio: true,
     video: { facingMode: 'environment' }, // change to user for front camera
   };
-
+  const { t } = useTranslation('signature_captured');
   const videoRefFront: any = useRef(null);
   const videoRefBack: any = useRef(null);
   const mediaStreamFront = useUserMedia(front, false);
@@ -49,7 +51,7 @@ const SignatureCaptured = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      router.push('/');
+      router.push('/status_updated_successfully');
     }, 6000);
   }, []);
 
@@ -61,11 +63,17 @@ const SignatureCaptured = () => {
       <DivCameraBox ref={videoRefBack} />
       <DivTextStyled>
         <TextStyled>
-          Signature captured successfully <DoneIcon />
+          {t('signature_captured_successfully')}
+          <DoneIcon />
         </TextStyled>
       </DivTextStyled>
     </DivMain>
   );
 };
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['signature_captured'])),
+  },
+});
 
 export default SignatureCaptured;

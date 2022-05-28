@@ -46,5 +46,6 @@ export const Canvas = styled.canvas`
 
 export const PanCameraTextStyledWrapper = styled.div`
   display: flex;
+  text-align: center;
   justify-content: center;
 `;

@@ -4,8 +4,9 @@ export const DivCameraTextStyled = styled.div`
   position: absolute;
   bottom: 70px;
   display: flex;
+  justify-content: center;
   flex-direction: row;
-  gap: 15px;
+  gap: 5px;
 `;
 
 export const CameraTextStyled = styled.div`

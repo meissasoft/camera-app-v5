@@ -1,7 +1,7 @@
-import router from 'next/router';
-
 import { useEffect, useRef } from 'react';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import router from 'next/router';
 import { useUserMedia } from '@/hooks/useUserMedia';
 
 import BottomText from '@/components/VideoBottomText';
@@ -65,5 +65,10 @@ const InitiatedVideoCall = () => {
     </DivMain>
   );
 };
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['initiated_video_call'])),
+  },
+});
 
 export default InitiatedVideoCall;
