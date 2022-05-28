@@ -1,12 +1,32 @@
 import styled from '@emotion/styled';
 import { COLORS } from '@/constants/colors';
 export const DescriptionDiv = styled.div`
-  margin-top: 10px;
+  margin-top: 5px;
+  display: inline;
+  flex-direction: row;
+`;
+
+export const LightText = styled.span`
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   text-align: center;
+  margin-bottom: 0px !important;
   color: ${COLORS.GREY_12};
   opacity: 0.6;
 `;
+
+export const BoldText = styled.span`
+  font-weight: 600;
+  margin-top: 5px;
+  font-style: normal;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 0px !important;
+  color: ${COLORS.BLACK_HEAVY} !important;
+  opacity: 10 !important;
+`;
+
 export const Divider = styled.hr`
   color: rgba(0, 0, 0, 0.7);
 `;
@@ -49,9 +69,13 @@ export const CalendarDiv = styled.div`
   .react-calendar__tile {
     font-size: 16px;
     font-weight: 600;
+    border-radius: 3px;
+    margin: 0px;
+    border: 0px;
+    padding: 10px 2px;
   }
   .react-calendar__navigation button {
-    color: black;
+    color: ${COLORS.BLACK_200};
     min-width: 44px;
     background: none;
     margin-top: 8px;
@@ -72,8 +96,13 @@ export const CalendarDiv = styled.div`
     text-decoration: none;
   }
   .react-calendar__month-view__days__day--weekend {
-    color: black;
+    color: ${COLORS.BLACK_200};
   }
+
+  .react-calendar__month-view__days__day--weekend[disabled] {
+    color: rgba(16, 16, 16, 0.3);
+  }
+
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {
     background: ${COLORS.ATHEN_GREY};
@@ -82,7 +111,7 @@ export const CalendarDiv = styled.div`
   }
   .react-calendar__tile--now {
     background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
-    border-radius: 0px;
+    border-radius: 3px;
     font-weight: bold;
     color: ${COLORS.WHITE_100};
   }
@@ -103,6 +132,10 @@ export const CalendarDiv = styled.div`
     font-weight: bold;
     color: white;
   }
+
+  .react-calendar__tile--disabled {
+    color: none;
+  }
   .react-calendar__tile--active:enabled:hover,
   .react-calendar__tile--active:enabled:focus {
     background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
@@ -120,12 +153,12 @@ export const CalendarDiv = styled.div`
   .react-calendar__tile--rangeStart {
     border-radius: 0px;
     background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
-    color: white;
+    color: ${COLORS.WHITE_200};
   }
   .react-calendar__tile--rangeEnd {
     border-radius: 0px;
     background: linear-gradient(90.81deg, ${COLORS.FAUX_CHINESE_BLUE} 10%, ${COLORS.SKY_100} 75.3%);
-    color: white;
+    color: ${COLORS.WHITE_200};
   }
   .confirmDisable {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
@@ -148,7 +181,7 @@ export const DefaultOptionDiv = styled.div`
   cursor: pointer;
   background: ${COLORS.WHITE_200};
   span {
-    color: #121212;
+    color: ${COLORS.GREY_12};
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
@@ -163,7 +196,7 @@ export const OptionsListDiv = styled.div`
   border-radius: 5px;
   padding: 0px 10px;
   background: ${COLORS.WHITE_200};
-  border: 1px solid ${COLORS.GREY_50};
+  /* border: 1px solid ${COLORS.GREY_50}; */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.09);
   border-radius: 5px;
   position: absolute;

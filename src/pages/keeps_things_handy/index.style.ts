@@ -48,7 +48,7 @@ export const LightText = styled.span`
   font-size: 16px;
   text-align: center;
   margin-bottom: 0px !important;
-  color: #121212;
+  color: ${COLORS.GREY_12};
   opacity: 0.6;
 `;
 
@@ -59,7 +59,7 @@ export const BoldText = styled.span`
   font-size: 18px;
   text-align: center;
   margin-bottom: 0px !important;
-  color: black !important;
+  color: ${COLORS.BLACK_HEAVY} !important;
   opacity: 10 !important;
 `;
 
