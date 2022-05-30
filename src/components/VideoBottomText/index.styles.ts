@@ -8,6 +8,6 @@ export const TextStyled = styled.p`
   font-size: 18px;
   text-align: center;
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   padding: 0px 5px;
 `;

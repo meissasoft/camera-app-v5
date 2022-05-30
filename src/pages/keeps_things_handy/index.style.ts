@@ -124,7 +124,9 @@ export const DocumentContainer = styled.div`
 export const DivDifference = styled.div`
   margin-top: 45px;
 `;
-export const DivButton = styled.div``;
+export const DivFooterButton = styled.div`
+  margin-top: 20px;
+`;
 export const DivVerificationCardStyled = styled.div`
   display: flex;
   align-items: center;

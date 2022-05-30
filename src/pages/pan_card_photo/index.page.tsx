@@ -1,94 +1,135 @@
-import { useRouter } from 'next/router';
+import router from 'next/router';
+
 import { useEffect, useRef } from 'react';
 
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+
 import { useUserMedia } from '@/hooks/useUserMedia';
 
 import PanCardPhotos from '@/components/core/PanCardPhoto/index.';
 import {
-  Canvas,
+  DivCameraBox,
+  DivFrontCam,
   DivMain,
-  DivVideoBox,
-  PanCameraStyled,
-  PanDivCameraBox,
+  DivFrontCamContainer,
+  DivDocScanContainer,
+  DivDocScan,
   PanCameraTextStyledWrapper,
-  Background,
+  Canvas,
 } from './index.styles';
 
 /**
  *
- * @returns pan card photo page
+ * @returns Pan Card  page
  */
 
-const PanCardPhoto = () => {
-  const { t } = useTranslation('pan_card_photo');
-  const router = useRouter();
-  const CAPTURE_OPTIONS = {
-    audio: false,
-    video: { facingMode: 'environment' },
+const PanCard = () => {
+  const front = {
+    audio: true,
+    video: { facingMode: 'environment' }, // change to user for front camera
   };
+  const { t } = useTranslation('pan_card_photo');
+  const videoRefFront: any = useRef(null);
+  const videoRefBack: any = useRef(null);
+  const photoRefFront: any = useRef(null);
+  const mediaStreamFront = useUserMedia(front, false);
+  const mediaRecorderFront: any = useRef(null);
+  const mediaRecorderBack: any = useRef(null);
+  const blobsRecordedFront: any = [];
+  const blobsRecordedBack: any = [];
 
-  const mediaStream = useUserMedia(CAPTURE_OPTIONS, false);
-
-  const videoRef = useRef(null) as any;
-  const videoRef1 = useRef(null) as any;
-  const photoRef = useRef(null) as any;
+  useEffect(() => {
+    if (mediaStreamFront && videoRefFront.current && !videoRefFront.current.srcObject) {
+      videoRefFront.current.setAttribute('autoplay', '');
+      videoRefFront.current.setAttribute('muted', '');
+      videoRefFront.current.setAttribute('playsinline', '');
+      videoRefFront.current.srcObject = mediaStreamFront;
+      videoRefFront.current.play();
+      try {
+        mediaRecorderFront.current = new MediaRecorder(mediaStreamFront, {
+          mimeType: 'video/webm',
+        });
+        mediaRecorderFront.current.start(1000);
+        mediaRecorderFront.current.addEventListener('dataavailable', function (e: any) {
+          blobsRecordedFront.push(e.data);
+        });
+      } catch (exe) {
+        mediaRecorderFront.current = new MediaRecorder(mediaStreamFront, {
+          mimeType: 'video/mp4',
+        });
+        mediaRecorderFront.current.start(1000);
+        mediaRecorderFront.current.addEventListener('dataavailable', function (e: any) {
+          blobsRecordedFront.push(e.data);
+        });
+      }
+    }
+    if (mediaStreamFront && videoRefBack.current && !videoRefBack.current.srcObject) {
+      videoRefBack.current.setAttribute('autoplay', '');
+      videoRefBack.current.setAttribute('muted', '');
+      videoRefBack.current.setAttribute('playsinline', '');
+      videoRefBack.current.srcObject = mediaStreamFront;
+      videoRefBack.current.play();
+      try {
+        mediaRecorderBack.current = new MediaRecorder(mediaStreamFront, {
+          mimeType: 'video/webm',
+        });
+        mediaRecorderBack.current.start(1000);
+        mediaRecorderBack.current.addEventListener('dataavailable', function (e: any) {
+          blobsRecordedFront.push(e.data);
+        });
+      } catch (exe) {
+        mediaRecorderBack.current = new MediaRecorder(mediaStreamFront, {
+          mimeType: 'video/mp4',
+        });
+        mediaRecorderBack.current.start(1000);
+        mediaRecorderBack.current.addEventListener('dataavailable', function (e: any) {
+          blobsRecordedBack.push(e.data);
+        });
+      }
+    }
+  }, [mediaStreamFront]);
 
   const takePhoto = () => {
     const width = 314;
     const height = width / (16 / 9);
-    const video = videoRef.current;
-    const photo = photoRef.current as any;
+    const video = videoRefFront.current;
+    const photo = photoRefFront.current as any;
     photo.width = width;
     photo.height = height;
-    const ctx = photo.getContext('2d');
-    ctx.drawImage(video, 0, 0, width, height);
-    const dataUrl = photo.toDataURL();
-    console.log('dataUrl', dataUrl);
+    if (photo) {
+      const ctx = photo.getContext('2d');
+      ctx.drawImage(video, 0, 0, width, height);
+      const dataUrl = photo.toDataURL();
+      console.log('dataUrl', dataUrl);
+    }
   };
-
-  useEffect(() => {
-    if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
-      videoRef.current.setAttribute('autoplay', '');
-      videoRef.current.setAttribute('muted', '');
-      videoRef.current.setAttribute('playsinline', '');
-      videoRef.current.srcObject = mediaStream;
-      videoRef.current.play();
-    }
-    if (mediaStream && videoRef1.current && !videoRef1.current.srcObject) {
-      videoRef1.current.setAttribute('autoplay', '');
-      videoRef1.current.setAttribute('muted', '');
-      videoRef1.current.setAttribute('playsinline', '');
-      videoRef1.current.srcObject = mediaStream;
-      videoRef1.current.play();
-    }
-  }, [mediaStream]);
 
   useEffect(() => {
     setTimeout(() => {
       router.push('/signature_captured');
     }, 15000);
-  }, [mediaStream]);
+  }, []);
 
   return (
-    <Background>
-      <DivMain>
-        <PanCameraStyled>
-          <PanDivCameraBox ref={videoRef} playsInline muted></PanDivCameraBox>
-          <Canvas ref={photoRef}></Canvas>
-          <DivVideoBox ref={videoRef1} playsInline muted />
-        </PanCameraStyled>
-        <PanCameraTextStyledWrapper>
-          <PanCardPhotos
-            takePhoto={takePhoto}
-            text1={t('position_the_pan_card_exactly_in_the_frame')}
-            text2={t('pan_card_captured_successfully')}
-            text3={t('hold_your_signature')}
-          />
-        </PanCameraTextStyledWrapper>
-      </DivMain>
-    </Background>
+    <DivMain>
+      <DivCameraBox ref={videoRefBack} muted playsInline />
+      <DivFrontCamContainer>
+        <DivFrontCam ref={videoRefFront} muted playsInline />
+      </DivFrontCamContainer>
+      <DivDocScanContainer>
+        <DivDocScan ref={videoRefFront} muted playsInline />
+      </DivDocScanContainer>
+      <Canvas ref={photoRefFront}></Canvas>
+      <PanCameraTextStyledWrapper>
+        <PanCardPhotos
+          takePhoto={takePhoto}
+          text1={t('position_the_pan_card_exactly_in_the_frame')}
+          text2={t('pan_card_captured_successfully')}
+          text3={t('hold_your_signature')}
+        />
+      </PanCameraTextStyledWrapper>
+    </DivMain>
   );
 };
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
@@ -96,4 +137,5 @@ export const getStaticProps = async ({ locale }: { locale: string }) => ({
     ...(await serverSideTranslations(locale, ['pan_card_photo'])),
   },
 });
-export default PanCardPhoto;
+
+export default PanCard;

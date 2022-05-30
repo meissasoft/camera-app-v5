@@ -5,7 +5,15 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useUserMedia } from '@/hooks/useUserMedia';
 
 import BottomTextLivePhoto from '@/components/LivePhotoBottom';
-import { Background, Canvas, DivCameraBox, DivMain, DivVideoBox, CameraStyled, CameraTextStyledWrapper } from './index.style';
+import {
+  Background,
+  Canvas,
+  DivCameraBox,
+  DivMain,
+  DivVideoBox,
+  CameraStyled,
+  CameraTextStyledWrapper,
+} from './index.style';
 
 /**
  *

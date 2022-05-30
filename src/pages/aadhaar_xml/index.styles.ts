@@ -8,7 +8,7 @@ export const DivMain = styled.div`
   justify-content: space-between;
   height: calc(100vh - 40px);
   @media (max-height: 720px) {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 70px);
   }
   @media (max-height: 670px) {
     height: calc(100vh - 40px);
@@ -32,9 +32,8 @@ export const DivForm = styled.div`
 `;
 
 export const FooterButtonStyle = styled.div`
-  margin-top: 2%;
+  margin-top: 20px;
   width: 100%;
-  margin-top: 48px;
   display: flex;
   align-items: center;
   justify-content: center;

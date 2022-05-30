@@ -1,5 +1,20 @@
 import styled from '@emotion/styled';
 import { COLORS } from '@/constants/colors';
+
+export const DivMain = styled.div`
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 50px);
+  @media (max-height: 720px) {
+    height: calc(100vh - 70px);
+  }
+  @media (max-height: 670px) {
+    height: calc(100vh - 40px);
+  }
+`;
+
 export const DescriptionDiv = styled.div`
   margin-top: 5px;
   display: inline;
@@ -29,13 +44,6 @@ export const BoldText = styled.span`
 
 export const Divider = styled.hr`
   color: rgba(0, 0, 0, 0.7);
-`;
-export const DivMain = styled.div`
-  padding: 20px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 export const CalendarDiv = styled.div`
   border: 1px;
@@ -240,4 +248,9 @@ export const SingleOptionDiv = styled.div`
 `;
 export const CustomDropDown = styled.div`
   position: relative;
+`;
+
+export const DivFooterButton = styled.div`
+  margin-top: 20px;
+  width: 100%;
 `;
