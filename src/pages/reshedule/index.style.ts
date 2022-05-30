@@ -94,6 +94,7 @@ export const CalendarDiv = styled.div`
 
   .react-calendar__month-view__days__day--weekend[disabled] {
     color: rgba(16, 16, 16, 0.3) !important;
+    /* flex: 0 0 10.2857% !important; */
   }
 
   .react-calendar__tile:enabled:hover,
