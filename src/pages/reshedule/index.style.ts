@@ -89,9 +89,11 @@ export const CalendarDiv = styled.div`
     text-decoration: none;
   }
   .react-calendar__month-view__days__day--weekend {
-    color: ${COLORS.BLACK_200};
-    /* flex: 0 0 10.2857% !important;
-    margin-left: 11px; */
+    color: ${COLORS.BLACK_100};
+  }
+
+  .react-calendar__month-view__days__day--weekend[disabled] {
+    color: rgba(16, 16, 16, 0.3) !important;
   }
 
   .react-calendar__tile:enabled:hover,
