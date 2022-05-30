@@ -14,12 +14,12 @@ export const DivInner = styled.div`
   padding: 20px 20px 0px 20px;
   box-shadow: 0px -11px 13px rgba(0, 0, 0, 0.06);
   border-radius: 20px 20px 0px 0px;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 60px);
   @media (max-height: 720px) {
     height: calc(100vh - 110px);
   }
   @media (max-height: 670px) {
-    height: calc(100vh - 40px);
+    height: calc(100vh - 60px);
   }
   justify-content: space-between;
 `;

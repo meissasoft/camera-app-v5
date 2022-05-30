@@ -28,6 +28,7 @@ import {
   LightText,
   BoldText,
 } from './index.style';
+import { DivFooterButton } from '../keeps_things_handy/index.style';
 
 const Reshedule = () => {
   const { t } = useTranslation('reschedule');
@@ -70,7 +71,6 @@ const Reshedule = () => {
     <DivMain>
       <div>
         <Heading text={t('reschedule')} onClick={handleBack} />
-
         <div className="mt-5 text-center">
           <DescriptionDiv>
             <LightText>{t('please_select_a')}</LightText> <BoldText>{t('date_and_time')}</BoldText>
@@ -127,14 +127,15 @@ const Reshedule = () => {
           </>
         </CustomDropDown>
       </div>
-
-      <Button
-        onClick={handleContinue}
-        className={`my-5 m-auto ${selectOptionIcon === null ? 'confirmDisable' : ''}`}
-        // disabled={selectOptionIcon === null ? true : false}
-      >
-        {t('confirm')}
-      </Button>
+      <DivFooterButton>
+        <Button
+          onClick={handleContinue}
+          className={` m-auto ${selectOptionIcon === null ? 'confirmDisable' : ''}`}
+          // disabled={selectOptionIcon === null ? true : false}
+        >
+          {t('confirm')}
+        </Button>
+      </DivFooterButton>
     </DivMain>
   );
 };

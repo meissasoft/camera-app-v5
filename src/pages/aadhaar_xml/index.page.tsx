@@ -70,7 +70,7 @@ const AadhaarXml = () => {
         </MainStyle>
       </div>
       <FooterButtonStyle>
-        <Button isBottom onClick={handleContinue} className="m-auto">
+        <Button onClick={handleContinue} className="m-auto">
           {t('continue')}
         </Button>
       </FooterButtonStyle>

@@ -42,4 +42,5 @@ export const VerificationSuccessfulSmallTextStyled = styled.p`
 `;
 export const DivBottom = styled.div`
   width: 100%;
+  margin-top: 20px;
 `;

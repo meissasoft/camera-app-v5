@@ -12,7 +12,7 @@ import { CardIcon } from '@/assets/svg/card-icon2';
 import { GoogleIcon } from '@/assets/svg/google-1';
 
 import {
-  DivButton,
+  DivFooterButton,
   DivButtons,
   DivMain,
   DivVerificationCardStyled,
@@ -128,11 +128,11 @@ const KeepThingsHandy = () => {
           </DivButtons>
         </DocumentContainer>
       </div>
-      <DivButton>
+      <DivFooterButton>
         <Button onClick={handleStart} className="m-auto">
           {t("i'm_Ready")}
         </Button>
-      </DivButton>
+      </DivFooterButton>
     </DivMain>
   );
 };

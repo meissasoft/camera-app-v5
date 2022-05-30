@@ -41,8 +41,7 @@ const TokenNumber = () => {
           </TokenDescription>
         </div>
       </div>
-
-      <Button isBottom onClick={handleContinue} className="my-5 m-auto">
+      <Button onClick={handleContinue} className="my-5 m-auto">
         {t('book_a_slot')}
       </Button>
     </DivMain>

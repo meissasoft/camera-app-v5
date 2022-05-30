@@ -28,8 +28,8 @@ export const BodyModalStyled = styled.div`
   align-items: flex-start;
   background: #ffffff;
   position: absolute;
-  width: 327px;
-  left: calc(50% - 327px / 2 + 0.5px);
+  width: 370px;
+  left: calc(50% - 370px / 2 + 0.5px);
   top: calc(100% - 500px / 2);
   background: rgba(0, 0, 0, 0.8);
   background: rgba(255, 255, 255);

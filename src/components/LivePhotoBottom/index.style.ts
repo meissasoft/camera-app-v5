@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const DivCameraTextStyled = styled.div`
   position: absolute;
-  bottom: 70px;
+  bottom: 0px;
   display: flex;
   flex-direction: row;
   gap: 15px;
