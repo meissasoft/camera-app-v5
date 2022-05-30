@@ -68,7 +68,7 @@ const PanCardPhoto = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push('/signature_captured');
-    }, 10000);
+    }, 15000);
   }, [mediaStream]);
 
   return (

@@ -23,13 +23,13 @@ const PanCardPhotos = ({ takePhoto, text1, text2, text3 }: Props) => {
     setTimeout(() => {
       setText(text2);
       setIcon(true);
-    }, 3000);
+    }, 8000);
 
     setTimeout(() => {
       setText(text3);
       takePhoto();
       setIcon(false);
-    }, 5000);
+    }, 10000);
   }, []);
 
   return (

@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
 import { COLORS } from '@/constants/colors';
 
-export const DivMain = styled.div`
+export const Background = styled.div`
   background-color: ${COLORS.BLACK_100};
+  height: 100vh;
+`;
+
+export const DivMain = styled.div`
   height: calc(100vh - 40px);
   @media (max-height: 720px) {
     height: calc(100vh - 58px);

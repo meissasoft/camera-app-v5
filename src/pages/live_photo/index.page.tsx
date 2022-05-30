@@ -5,7 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useUserMedia } from '@/hooks/useUserMedia';
 
 import BottomTextLivePhoto from '@/components/LivePhotoBottom';
-import { Canvas, DivCameraBox, DivMain, DivVideoBox, CameraStyled, CameraTextStyledWrapper } from './index.style';
+import { Background, Canvas, DivCameraBox, DivMain, DivVideoBox, CameraStyled, CameraTextStyledWrapper } from './index.style';
 
 /**
  *
@@ -58,7 +58,7 @@ const LiveCameraPhoto = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push('/pan_card_photo');
-    }, 10000);
+    }, 15000);
   }, [mediaStream]);
 
   // for clear image
@@ -68,16 +68,18 @@ const LiveCameraPhoto = () => {
   // }
 
   return (
-    <DivMain>
-      <CameraStyled>
-        <DivCameraBox ref={videoRef}></DivCameraBox>
-        <Canvas ref={photoRef}></Canvas>
-        <DivVideoBox ref={videoRef1} />
-      </CameraStyled>
-      <CameraTextStyledWrapper>
-        <BottomTextLivePhoto takePhoto={takePhoto} />
-      </CameraTextStyledWrapper>
-    </DivMain>
+    <Background>
+      <DivMain>
+        <CameraStyled>
+          <DivCameraBox ref={videoRef}></DivCameraBox>
+          <Canvas ref={photoRef}></Canvas>
+          <DivVideoBox ref={videoRef1} />
+        </CameraStyled>
+        <CameraTextStyledWrapper>
+          <BottomTextLivePhoto takePhoto={takePhoto} />
+        </CameraTextStyledWrapper>
+      </DivMain>
+    </Background>
   );
 };
 

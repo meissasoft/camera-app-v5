@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
-  background: ${COLORS.BLACK_200};
   display: flex;
   flex-direction: column;
   width: 100%;
