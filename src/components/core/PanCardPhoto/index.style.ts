@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { COLORS } from '@/constants/colors';
 
 export const DivCameraTextStyled = styled.div`
   position: absolute;
@@ -7,6 +8,8 @@ export const DivCameraTextStyled = styled.div`
   justify-content: center;
   flex-direction: row;
   gap: 5px;
+  background-color: ${COLORS.BLACK_100};
+  width: 100%;
 `;
 
 export const CameraTextStyled = styled.div`

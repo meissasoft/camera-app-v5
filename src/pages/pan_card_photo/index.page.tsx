@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next';
 
 import { useUserMedia } from '@/hooks/useUserMedia';
 
-import PanCardPhotos from '@/components/core/PanCardPhoto/index.';
+import PanCardPhotos from '@/components/core/PanCardPhoto';
 import {
   DivCameraBox,
   DivFrontCam,
@@ -17,6 +17,10 @@ import {
   DivDocScan,
   PanCameraTextStyledWrapper,
   Canvas,
+  DivFrontCamLeftContainer,
+  DivFrontCamRightContainer,
+  DivContainer,
+  DivEmptyBlur,
 } from './index.styles';
 
 /**
@@ -30,9 +34,9 @@ const PanCard = () => {
     video: { facingMode: 'environment' }, // change to user for front camera
   };
   const { t } = useTranslation('pan_card_photo');
+  const photoRefFront: any = useRef(null);
   const videoRefFront: any = useRef(null);
   const videoRefBack: any = useRef(null);
-  const photoRefFront: any = useRef(null);
   const mediaStreamFront = useUserMedia(front, false);
   const mediaRecorderFront: any = useRef(null);
   const mediaRecorderBack: any = useRef(null);
@@ -114,21 +118,32 @@ const PanCard = () => {
   return (
     <DivMain>
       <DivCameraBox ref={videoRefBack} muted playsInline />
-      <DivFrontCamContainer>
-        <DivFrontCam ref={videoRefFront} muted playsInline />
-      </DivFrontCamContainer>
-      <DivDocScanContainer>
-        <DivDocScan ref={videoRefFront} muted playsInline />
-      </DivDocScanContainer>
       <Canvas ref={photoRefFront}></Canvas>
-      <PanCameraTextStyledWrapper>
-        <PanCardPhotos
-          takePhoto={takePhoto}
-          text1={t('position_the_pan_card_exactly_in_the_frame')}
-          text2={t('pan_card_captured_successfully')}
-          text3={t('hold_your_signature')}
-        />
-      </PanCameraTextStyledWrapper>
+      <DivContainer>
+        <DivEmptyBlur height="2vh" />
+        <DivFrontCamContainer>
+          <DivFrontCamLeftContainer>
+            <div></div>
+            <DivFrontCam ref={videoRefFront} muted playsInline />
+          </DivFrontCamLeftContainer>
+          <DivFrontCamRightContainer>&emsp; &nbsp; </DivFrontCamRightContainer>
+        </DivFrontCamContainer>
+        <DivEmptyBlur height="11vh" />
+        <DivDocScanContainer>
+          <span>&emsp; &nbsp; </span>
+          <DivDocScan />
+          <span>&emsp; &nbsp; </span>
+        </DivDocScanContainer>
+        <DivEmptyBlur height="40vh" />
+        <PanCameraTextStyledWrapper>
+          <PanCardPhotos
+            takePhoto={takePhoto}
+            text1={t('position_the_pan_card_exactly_in_the_frame')}
+            text2={t('pan_card_captured_successfully')}
+            text3={t('hold_your_signature')}
+          />
+        </PanCameraTextStyledWrapper>
+      </DivContainer>
     </DivMain>
   );
 };
