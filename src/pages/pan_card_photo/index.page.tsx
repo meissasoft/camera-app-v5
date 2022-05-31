@@ -34,9 +34,9 @@ const PanCard = () => {
     video: { facingMode: 'environment' }, // change to user for front camera
   };
   const { t } = useTranslation('pan_card_photo');
+  const photoRefFront: any = useRef(null);
   const videoRefFront: any = useRef(null);
   const videoRefBack: any = useRef(null);
-  const photoRefFront: any = useRef(null);
   const mediaStreamFront = useUserMedia(front, false);
   const mediaRecorderFront: any = useRef(null);
   const mediaRecorderBack: any = useRef(null);

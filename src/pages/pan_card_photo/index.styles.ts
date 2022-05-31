@@ -38,7 +38,7 @@ export const DivFrontCamLeftContainer = styled.div`
   flex-grow: 9;
   > div {
     flex-grow: 8;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
   }
 `;
 
@@ -59,19 +59,19 @@ export const DivFrontCam = styled.video`
 export const DivFrontCamRightContainer = styled.div`
   display: flex;
   flex-grow: 1;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 `;
 
 export const DivEmptyBlur = styled.div<{ height: string }>`
   height: ${({ height }) => height};
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 `;
 
 export const DivDocScanContainer = styled.div`
   display: flex;
   height: 220px;
   span {
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
   }
 `;
 

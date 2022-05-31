@@ -6,12 +6,12 @@ export const BixDiv = styled.div`
   flex-direction: column;
   align-items: space-between;
   justify-content: space-between;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 110px);
   @media (max-height: 720px) {
     height: calc(100vh - 110px);
   }
   @media (max-height: 670px) {
-    height: calc(100vh - 40px);
+    height: calc(100vh - 110px);
   }
 `;
 export const DivWrapper = styled.div`
