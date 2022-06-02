@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { queryClient } from '@/utils/queryClient';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 import store, { persistor } from '../store';
 import 'bootstrap/dist/css/bootstrap.min.css';
