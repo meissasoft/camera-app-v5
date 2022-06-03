@@ -47,7 +47,7 @@ const Commenceyourvideo = () => {
   ];
 
   const handleStart = () => {
-    router.push('/keeps_things_handy');
+    router.push('/enter_details');
   };
   const onRowClickHandel = () => {
     router.push('/aadhaar_xml');
