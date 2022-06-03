@@ -3,56 +3,56 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
-import CarouseModel from '@/components/CarouselModel';
 // import { DivRadioStyled } from '@/components/CarouselModel/index.style';
+import { useState } from 'react';
 import Button from '@/components/core/Button';
-import { DivMain, DivSvg, DivForm, ParagraphStyled, TextStyled, FooterButtonStyle } from './index.style';
+import DemoCarousel from '@/components/CarouselModel';
+import MyCommenceCenteredModal from '@/components/CommenceVideomodel';
+import { DivMain, DivSvg, DivForm, ParagraphStyled, TextStyled, DivButton } from './index.style';
 /**
  *
- * @returns Initiating a video call page
+ * @returns Walk Through page
  */
-const InitiatingVideo = () => {
+const WalkThrough = () => {
   const router = useRouter();
-  const { t } = useTranslation('initiating_video');
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       router.push('/initiated_video_call');
-  //     }, 3000);
-  //   }, []);
+  const { t } = useTranslation('walk_through');
+
+  const [modalShow, setModalShow] = useState<boolean>(false);
+  const onAgree = () => {
+    router.push('/commence_video');
+  };
+  const onDisAgree = () => {
+    setModalShow(false);
+  };
 
   const handleContinue = () => {
-    router.push('commence_video');
+    setModalShow(true);
   };
 
   return (
     <DivMain>
       <DivSvg>
-        {/* <DivButton onClick={onClickBack}>Skip</DivButton> */}
-        <CarouseModel />
+        <DemoCarousel />
       </DivSvg>
-
-      {/* <DivRadioDots>
-        <DivRadioStyled></DivRadioStyled>
-      </DivRadioDots> */}
-
       <DivForm>
-        <TextStyled>{t('CKYC')}</TextStyled>
-        <ParagraphStyled>{t('Please keep your following documents handy before you proceed.')}</ParagraphStyled>
+        <TextStyled>{t('ckyc')}</TextStyled>
+        <ParagraphStyled>{t('please_keep_your_following_documents_handy_before_you_proceed.')}</ParagraphStyled>
       </DivForm>
 
-      <FooterButtonStyle>
-        <Button onClick={handleContinue} className="m-auto">
-          Next
+      <DivButton>
+        <Button isBottom onClick={handleContinue} className="m-auto">
+          {t('continue')}
         </Button>
-      </FooterButtonStyle>
+      </DivButton>
+      <MyCommenceCenteredModal show={modalShow} onAgree={onAgree} onDisagree={onDisAgree} onHide={onDisAgree} />
     </DivMain>
   );
 };
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['initiating_video'])),
+    ...(await serverSideTranslations(locale, ['walk_through', 'aadhaar_xml'])),
   },
 });
 
-export default InitiatingVideo;
+export default WalkThrough;

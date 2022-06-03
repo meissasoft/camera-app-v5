@@ -1,24 +1,29 @@
-import { Carousel } from 'react-bootstrap';
-import { MainDivStyled } from './index.style';
-function CarouseModel() {
+import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import { DivMainSlider1, DivMainSlider2, DivMainSlider3, MainDivStyled } from './index.style';
+
+function DemoCarousel2() {
   return (
     <>
       <MainDivStyled>
-        <Carousel style={{ width: '100%', height: '260px' }}>
-          <Carousel.Item interval={1000}>
-            <h1>Ubaid bhai</h1>
-          </Carousel.Item>
-          <Carousel.Item interval={500}>
-            {/* <img className="d-block w-100" src={Screenshot} alt="img not found" /> */}
-            <h1>Amir</h1>
-          </Carousel.Item>
-          <Carousel.Item>
-            {/* <img className="d-block w-100" /> */}
-            <h1>Jahanzaib</h1>
-          </Carousel.Item>
+        <Carousel
+          interval={1000}
+          centerMode
+          infiniteLoop
+          autoPlay={true}
+          autoFocus={true}
+          showStatus={false}
+          showArrows={false}
+          showIndicators={true}
+          showThumbs={false}
+          useKeyboardArrows={true}
+        >
+          <DivMainSlider1 />
+          <DivMainSlider2 />
+          <DivMainSlider3 />
         </Carousel>
       </MainDivStyled>
     </>
   );
 }
-export default CarouseModel;
+export default DemoCarousel2;
