@@ -30,36 +30,24 @@ import {
  */
 
 const onClickHeaderIcon = () => {
-  router.push('/language');
+  router.push('/walk_through');
 };
 
 const Commenceyourvideo = () => {
   const { t } = useTranslation('commence_video');
   const document = [
     {
-      name: t('aadhaar_verification'),
+      name: t('ckyc'),
       Svg: GreaterThenIcon,
     },
     {
       name: t('video_call_(q&a)'),
       Svg: GreaterThenIcon,
     },
-    {
-      name: t('photo_capture'),
-      Svg: GreaterThenIcon,
-    },
-    {
-      name: t('pan_capture'),
-      Svg: GreaterThenIcon,
-    },
-    {
-      name: t('signature_capture'),
-      Svg: GreaterThenIcon,
-    },
   ];
 
   const handleStart = () => {
-    router.push('/aadhaar_xml');
+    router.push('/enter_details');
   };
   const onRowClickHandel = () => {
     router.push('/aadhaar_xml');

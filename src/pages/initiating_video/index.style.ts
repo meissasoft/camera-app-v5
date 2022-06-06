@@ -10,6 +10,7 @@ export const DivMain = styled.div`
 `;
 export const DivSvg = styled.div`
   text-align: center;
+  animation: spin 2s linear infinite;
 `;
 export const DivForm = styled.div`
   margin-top: 20px;

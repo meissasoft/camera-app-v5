@@ -7,9 +7,9 @@ export const HourGlassIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
-    <rect width="60" height="60" fill="url(#pattern0)" />
+    <rect width="60" height="60" fill="url(#pattern3)" />
     <defs>
-      <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
         <use xlinkHref="#image0_55_1188" transform="scale(0.00195312)" />
       </pattern>
       <image
