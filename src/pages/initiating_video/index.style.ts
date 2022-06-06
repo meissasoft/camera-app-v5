@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
-  padding: 20px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

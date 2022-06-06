@@ -68,7 +68,7 @@ const KeepThingsHandy = () => {
   ]);
 
   const onClickHeaderIcon = () => {
-    router.push('/ckyc_no');
+    router.push('/downloaded_data');
   };
 
   const handleStart = () => {

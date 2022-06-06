@@ -2,17 +2,13 @@ import styled from '@emotion/styled';
 import { COLORS } from '@/constants/colors';
 
 export const DivMain = styled.div`
-  margin: 20px;
+  margin: 20px 20px 0px 20px;
+  height: calc(100vh - 20px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 50px);
-  @media (max-height: 720px) {
-    height: calc(100vh - 70px);
-  }
-  @media (max-height: 670px) {
-    height: calc(100vh - 40px);
-  }
+  -webkit-animation: fadeInUp 500ms ease-in-out; /* Chrome, Safari, Opera */
+  animation: fadeInUp 500ms ease-in-out;
 `;
 
 export const DescriptionDiv = styled.div`
@@ -45,6 +41,7 @@ export const BoldText = styled.span`
 export const Divider = styled.hr`
   color: rgba(0, 0, 0, 0.7);
 `;
+
 export const CalendarDiv = styled.div`
   border: 1px;
   display: flex;
@@ -186,6 +183,7 @@ export const CalendarDiv = styled.div`
     opacity: 0.6;
   }
 `;
+
 export const DefaultOptionDiv = styled.div`
   display: flex;
   justify-content: space-between;
@@ -202,6 +200,7 @@ export const DefaultOptionDiv = styled.div`
     opacity: 0.6;
   }
 `;
+
 export const OptionsListDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -210,21 +209,20 @@ export const OptionsListDiv = styled.div`
   border-radius: 5px;
   padding: 0px 10px;
   background: ${COLORS.WHITE_200};
-  /* border: 1px solid ${COLORS.GREY_50}; */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.09);
   border-radius: 5px;
   position: absolute;
   width: 100%;
+  z-index: 999;
 `;
+
 export const SingleOptionDiv = styled.div`
   border-bottom: 1.2px solid rgba(0, 0, 0, 0.2);
-  padding: 20px 20px;
+  padding: 14px 10px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
   opacity: 0.8;
   .planeSpan {
     font-weight: 600;
@@ -246,6 +244,7 @@ export const SingleOptionDiv = styled.div`
     border-bottom: none;
   }
 `;
+
 export const CustomDropDown = styled.div`
   position: relative;
 `;
@@ -253,4 +252,8 @@ export const CustomDropDown = styled.div`
 export const DivFooterButton = styled.div`
   margin-top: 20px;
   width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  padding-bottom: 22px;
 `;

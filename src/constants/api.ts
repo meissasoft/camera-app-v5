@@ -3,5 +3,6 @@ export const REQUEST_HEADERS = {
   Accept: 'application/json',
 };
 
+export const API_PAN_DETAILS = '';
 export const API_URL = '';
 export const API_SIGNIN = '';
