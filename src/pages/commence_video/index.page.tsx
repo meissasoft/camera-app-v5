@@ -30,7 +30,7 @@ import {
  */
 
 const onClickHeaderIcon = () => {
-  router.push('/language');
+  router.push('/walk_through');
 };
 
 const Commenceyourvideo = () => {

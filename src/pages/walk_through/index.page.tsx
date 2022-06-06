@@ -3,12 +3,11 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
-// import { DivRadioStyled } from '@/components/CarouselModel/index.style';
 import { useState } from 'react';
 import Button from '@/components/core/Button';
 import DemoCarousel from '@/components/CarouselModel';
 import MyCommenceCenteredModal from '@/components/CommenceVideomodel';
-import { DivMain, DivSvg, DivForm, ParagraphStyled, TextStyled, DivButton } from './index.style';
+import { DivMain, DivSvg, DivForm, ParagraphStyled, TextStyled, DivButton, DivSkip } from './index.style';
 /**
  *
  * @returns Walk Through page
@@ -28,10 +27,14 @@ const WalkThrough = () => {
   const handleContinue = () => {
     setModalShow(true);
   };
+  const handleBack = () => {
+    router.push('./language');
+  };
 
   return (
     <DivMain>
       <DivSvg>
+        <DivSkip onClick={handleBack}>Skip</DivSkip>
         <DemoCarousel />
       </DivSvg>
       <DivForm>
