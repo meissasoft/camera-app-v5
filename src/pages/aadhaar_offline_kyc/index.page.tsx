@@ -38,7 +38,11 @@ const AadhaarOfflineKyc = () => {
         <StepLayoutWrapper>
           <FieldInputStyled type="file" id="upload-file" onChange={onChangeInput} className="d-none" />
           <label htmlFor="upload-file" className="w-100">
-            <UploadCard heading={t('upload_from_device')} content={t('zip_file_should_not_be_more_that_3_days_old')} />
+            <UploadCard
+              heading={t('upload_from_device')}
+              content={t('zip_file_should_not_be_more_that_3_days_old')}
+              onClick={() => {}}
+            />
           </label>
         </StepLayoutWrapper>
       </div>
