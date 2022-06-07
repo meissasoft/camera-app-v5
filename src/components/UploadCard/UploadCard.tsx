@@ -8,7 +8,7 @@ interface Props {
   content: string;
   heading: string;
   onClick: any;
-  ref: any;
+  ref?: any;
 }
 
 function UploadCard({ content, heading, onClick, ref }: Props) {
